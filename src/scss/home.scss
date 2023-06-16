@@ -561,8 +561,8 @@
       }
     }
     @media (max-width: em(1200)){
-        opacity: 1;
-        pointer-events: all;
+        // opacity: 1;
+        // pointer-events: all;
     }
   }
   // .products-about__pagination
@@ -645,10 +645,89 @@
 
 }
 
-
 //------------------
 // === 3. PROJECTS =======================================
 //-------------------------
+.projects {
+  @include adaptiveValue("padding-top", 190, 75);
+  @include adaptiveValue("padding-bottom", 190, 75);
+  position: relative;
+  // .projects__text-backgr
+  &__text-backgr {
+    width: auto;
+    left: 32%;
+    z-index: -1;
+    @media (max-width: em(850)){
+        top: rem(40);
+        left: 0;
+        transform: translateX(0);
+    }
+    .text-backgr__txt {
+      @include adaptiveValue("font-size", 300, 180);
+    }
+  }
+  // .projects__container
+  &__container {
+  }
+	// .projects__head
+	&__head {
+    @include adaptiveValue("margin-bottom", 55, 60);
+    display: flex;
+    justify-content: space-between;
+    @media (max-width: em(550)){
+        flex-direction: column-reverse;
+        justify-content: unset;
+        row-gap: rem(15);
+    }
+	}
+	// .projects__label
+	&__label {
+    position: absolute;
+    top: 0;
+    left: rem(8);
+    color: $white-ff;
+	}
+	// .projects__subtitle
+	&__subtitle {
+    font-weight: 500;
+    font-size: rem(22);
+    line-height: calc(24/22);
+    color: $gray-B5;
+    position: relative;
+
+    @include adaptiveValue("margin-left", 106, 30);
+    align-self: flex-end;
+    @media (max-width: em(550)){
+        align-self: flex-start;
+    }
+
+    &::before {
+      content:'';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      max-width: rem(355);
+      height: rem(136);
+      background: #161616;
+      opacity: 0.5;
+      filter: blur(50px);
+      border-radius: 50%;
+      z-index: -1;
+    }
+	}
+	// .projects__title
+	&__title {
+    text-align: right;
+	}
+}
+
+.title-third {
+  font-weight: 800;
+  @include adaptiveValue("font-size", 48, 30);
+  line-height: calc(52/48);
+  color: $white-ff;
+}
 //------------------
 // === 4. PARTNERS =======================================
 //-------------------------
