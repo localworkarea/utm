@@ -1,1 +1,277 @@
-// Заголовки, загальні БЕМ блоки та інше...
+//-----------------------
+// Background sections ==================
+.backgr {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  pointer-events: none;
+  img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+  }
+  &::before {
+    content:'';
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("@img/background/LoopableNoise.gif");
+    background-position: top;
+    opacity: 0.08;
+  }
+  // .backgr_dark
+  &_dark {
+    background-color: $black-1A;
+    &::before {
+      background-size: rem(100);
+      background-repeat: repeat;
+    }
+  }
+  // .backgr_light
+  &_light {
+    background-color: $gray-D9;
+  }
+}
+
+
+//=------------------------
+// == BACKGRAUND TEXTS ==========================================================
+.text-backgr {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) translateY(0);
+  width: 100%;
+  z-index: 0;
+  @media (max-width:$mobileSmall){
+     width: 120%; 
+  }
+  &_light {
+    opacity: 0.2;
+  }
+  // .text-backgr__txt
+  &__txt {
+    font-weight: 800;
+    @include adaptiveValue("font-size", 300, 84);
+    line-height: calc(230/300);
+    display: block;
+
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-color: #383838;
+    -webkit-text-stroke-width: 2px; 
+    @media (max-width:$mobile){
+      -webkit-text-stroke-width: 1px
+    }
+
+    &:nth-child(1){
+      text-align: right;
+    }
+    &:nth-child(2){
+      text-align: left;
+    }
+    &:nth-child(3){
+      text-align: right;
+      padding-right: 10%;
+    }
+  }
+}
+
+//----------------------
+// == TITLES ======================================================
+.title-main {
+  font-weight: 800;
+  @include adaptiveValue("font-size", 62, 48, 0, 1920, 768);
+  @include adaptiveValue("font-size", 48, 38, 3, 768, 414);
+  @include adaptiveValue("font-size", 38, 32, 3, 414, 360);
+  line-height: calc(66/62);
+  color: $white-ff;
+  text-transform: uppercase;
+  span {
+    font-style: italic;
+    font-weight: 300;
+    color: $white-EB;
+  }
+}
+.title-first {
+  font-weight: 800;
+  @include adaptiveValue("font-size", 48, 28);
+  line-height: calc(52/48);
+  color: $black-00;
+  text-transform: uppercase;
+  span {
+    font-style: italic;
+    font-weight: 300;
+  }
+}
+.title-second {
+  font-weight: 800;
+  @include adaptiveValue("font-size", 88, 52);
+  line-height: 1;
+  text-transform: uppercase;
+  color: $black-00;
+}
+
+.subtitle {
+  font-weight: 700;
+  @include adaptiveValue("font-size", 24, 18);
+  line-height: calc(28/24);
+  color: $gray-B5;
+  text-transform: uppercase;
+  text-wrap: nowrap;
+}
+
+
+// === TEXTS =============================================
+.text-main {
+  font-weight: 400;
+  font-size: rem(18);
+  line-height: calc(22/18);
+  // .text-main_dark
+  &_dark {
+    color: #999999;
+    span {
+      color: $white-ff;
+      font-weight: 600;
+    }
+  }
+  // .text-main_light
+  &_light {
+  }
+}
+
+// == VERTICAL-HORIZONTAL TEXT LABLE ========================
+.label-txt {
+  font-weight: 700;
+  font-size: rem(10);
+  line-height: 2;
+  color: $black-00;
+  text-transform: uppercase;
+  // .label-txt_vertical
+  &_vertical {
+    writing-mode: vertical-lr;
+    transform: rotate(-180deg);
+  }
+}
+
+
+.card-products {
+  @include adaptiveValue("width", 270, 253);
+  @include adaptiveValue("height", 354, 332);
+  padding: rem(24) rem(20) rem(18) rem(28);
+  border: rem(2) solid transparent;
+
+  transition: all 0.3s ease;
+  &:hover {
+    background-color: $white-ff !important;
+    border: rem(2) solid $blue-1E-F6;
+    .card-products__title {
+      color: $blue-1E-F6 !important;
+    }
+    .card-products__img-ibg {
+      img {
+        transform: scale(1.05);
+      }
+    }
+    .card-products__bottom {
+      color: $blue-1E-F6 !important;
+      img {
+        filter: invert(49%) sepia(90%) saturate(2054%) hue-rotate(201deg) brightness(101%) contrast(101%);
+      }
+    }
+  }
+  @media (max-width:$mobileSmall){
+    padding: rem(23) rem(19) rem(17) rem(26);
+  }
+	// .card-products__body
+	&__body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    row-gap: rem(10);
+	}
+  // .card-products__title
+  &__title {
+    font-weight: 700;
+    font-size: rem(16);
+    line-height: calc(20/16);
+    color: $black-00;
+    text-transform: uppercase;
+   
+  }
+  // .card-products__img-ibg
+  &__img-ibg {
+    display: flex;
+    align-self: center;
+    width: 80%;
+    height: inherit;
+    img {
+      position: absolute !important;
+      object-fit: contain;
+      transition: all 1.5s linear;
+    }
+  }
+  // .card-products__bottom
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+    span {
+      font-size: rem(16);
+      font-weight: 400;
+      // text-transform: lowercase;
+      text-align: right;
+    }
+    img {
+      @media (max-width:$mobileSmall){
+          width: rem(21);
+          height: auto;
+      }
+    }
+  }
+  &.card-products_01,
+  &.card-products_02,
+  &.card-products_03 {
+    .card-products__title {
+      font-size: rem(24);
+      line-height: calc(16/24);
+    }
+  }
+
+  &.card-products_01 {
+     background-color: #E1ECEF;
+  }
+  &.card-products_02 {
+    background-color: #E6ECEF;
+  }
+  &.card-products_03 {
+    background-color: #E8E9E8;
+  }
+  &.card-products_04 {
+     background-color: #CCDDE5;
+  }
+  &.card-products_05 {
+    background-color: #EDEAE8;
+  }
+  &.card-products_06 {
+    background-color: #E3E9EC;
+  }
+  &.card-products_07 {
+    background-color: #DCE2E5;
+  }
+  &.card-products_08 {
+    background-color:  #E8E9E8;
+  }
+  &.card-products_09 {
+    background-color: #E1ECEF;
+  }
+  &.card-products_10 {
+    background-color:  #EBF4F8;
+  }
+}
