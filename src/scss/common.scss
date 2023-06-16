@@ -1,3 +1,11 @@
+summary::-webkit-details-marker {
+  // убрать стандартный маркер
+  display: none;
+}
+summary {
+  list-style: none;
+}
+
 //-----------------------
 // Background sections ==================
 .backgr {
@@ -286,24 +294,9 @@
   }
   // .spollers__item
   &__item {
-    position: relative;
-    @media (max-width:$mobileSmall){
-      &::before {
-        content:'';
-        position: absolute;
-        bottom: -1%;
-        left: -10%;
-        z-index: 1;
-        width: 150%;
-        height: rem(25);
-        background-color: #161616;
-        filter: blur(27px);
-      }
-    }
   }
   // .spollers__summary
   &__summary {
-    list-style: none;
     position: relative;
     border-top: rem(2) solid white;
     border-radius: rem(10) rem(10) 0 0;
@@ -337,9 +330,13 @@
     @include adaptiveValue("font-size", 62, 38);
     line-height: 0.7;
     align-self: flex-end;
-    // margin-left: rem(100);
-    @include adaptiveValue("margin-left", 100, 70, 0, 1920, 481);
-    @include adaptiveValue("margin-left", 17, 16, 3, 481, 480);
+    margin-left: rem(100);
+    @media (max-width: $mobile){
+        margin-left: rem(70);
+    }
+    @media (max-width:$mobileSmall){
+       margin-left: rem(16); 
+    }
     @media (max-width:em(900)){
        align-self: flex-start; 
        margin-top: rem(24);
@@ -380,9 +377,9 @@
 	}
   // .spollers__body
   &__body {
-   
   }
 }
+
 
 .spollers-project {
 	// .spollers-project__wrapper
@@ -398,8 +395,8 @@
         padding-top: 0;
     }
     @media (max-width:$mobileSmall){
-      overflow-y: auto; 
-      height: rem(490);
+      // overflow-y: auto; 
+      // height: rem(490);
     }
 	}
   // .spollers-project__img-ibg

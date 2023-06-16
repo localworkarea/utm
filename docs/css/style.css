@@ -221,6 +221,14 @@ body {
      object-fit: contain;
 }
 
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary {
+  list-style: none;
+}
+
 .backgr {
   position: absolute;
   top: 0;
@@ -509,12 +517,7 @@ body {
   background-color: #EBF4F8;
 }
 
-.spollers__item {
-  position: relative;
-}
-
 .spollers__summary {
-  list-style: none;
   position: relative;
   border-top: 0.125rem solid white;
   border-radius: 0.625rem 0.625rem 0 0;
@@ -543,6 +546,7 @@ body {
   line-height: 0.7;
   -ms-flex-item-align: end;
       align-self: flex-end;
+  margin-left: 6.25rem;
 }
 
 .spollers__close {
@@ -1682,10 +1686,6 @@ body {
     font-size: 3.875rem;
   }
 
-  .spollers__title {
-    margin-left: 6.25rem;
-  }
-
   .main-slider__img-ibg {
     padding-right: 4.1875rem;
   }
@@ -1747,6 +1747,10 @@ body {
     font-size: 3rem;
   }
 
+  .spollers__title {
+    margin-left: 4.375rem;
+  }
+
   .main__container {
     -webkit-box-align: center;
         -ms-flex-align: center;
@@ -1786,30 +1790,12 @@ body {
     height: auto;
   }
 
-  .spollers__item::before {
-    content: "";
-    position: absolute;
-    bottom: -1%;
-    left: -10%;
-    z-index: 1;
-    width: 150%;
-    height: 1.5625rem;
-    background-color: #161616;
-    -webkit-filter: blur(27px);
-            filter: blur(27px);
-  }
-
   .spollers__num {
     display: none;
   }
 
   .spollers__title {
     margin-left: 1rem;
-  }
-
-  .spollers-project__wrapper {
-    overflow-y: auto;
-    height: 30.625rem;
   }
 
   .spollers-project__title {
@@ -2093,12 +2079,6 @@ body {
   .projects__subtitle {
     -ms-flex-item-align: start;
         align-self: flex-start;
-  }
-}
-
-@media (max-width: 30.0625em) {
-  .spollers__title {
-    margin-left: 4.375rem;
   }
 }
 
@@ -2624,34 +2604,6 @@ body {
 @supports not (font-size: clamp( 2rem , -0.5rem  +  11.1111111111vw , 2.375rem )) {
     .title-main {
       font-size: calc(2rem + 0.375 * (100vw - 22.5rem) / 3.375);
-    }
-}
-}
-
-@media (min-width: 30.0625em) and (max-width: 120em) {
-@supports (margin-left: clamp( 4.375rem , 3.7482626824rem  +  2.084781098vw , 6.25rem )) {
-    .spollers__title {
-      margin-left: clamp( 4.375rem , 3.7482626824rem  +  2.084781098vw , 6.25rem );
-    }
-}
-
-@supports not (margin-left: clamp( 4.375rem , 3.7482626824rem  +  2.084781098vw , 6.25rem )) {
-    .spollers__title {
-      margin-left: calc(4.375rem + 1.875 * (100vw - 30.0625rem) / 89.9375);
-    }
-}
-}
-
-@media (min-width: 30em) and (max-width: 30.0625em) {
-@supports (margin-left: clamp( 1rem , -29rem  +  100vw , 1.0625rem )) {
-    .spollers__title {
-      margin-left: clamp( 1rem , -29rem  +  100vw , 1.0625rem );
-    }
-}
-
-@supports not (margin-left: clamp( 1rem , -29rem  +  100vw , 1.0625rem )) {
-    .spollers__title {
-      margin-left: calc(1rem + 0.0625 * (100vw - 30rem) / 0.0625);
     }
 }
 }
