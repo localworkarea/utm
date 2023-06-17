@@ -23,25 +23,25 @@ summary {
     object-fit: cover;
     z-index: 1;
   }
-  &::before {
-    content:'';
-    position: absolute;
-    z-index: 2;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url("@img/background/LoopableNoise.gif");
-    background-position: top;
-    opacity: 0.08;
-  }
+  // &::before {
+  //   content:'';
+  //   position: absolute;
+  //   z-index: 2;
+  //   top: 0;
+  //   left: 0;
+  //   width: 100%;
+  //   height: 100%;
+  //   background-image: url("@img/background/LoopableNoise.gif");
+  //   background-position: top;
+  //   opacity: 0.08;
+  // }
   // .backgr_dark
   &_dark {
     background-color: $black-1A;
-    &::before {
-      background-size: rem(350);
-      background-repeat: repeat;
-    }
+    // &::before {
+    //   background-size: rem(350);
+    //   background-repeat: repeat;
+    // }
   }
   // .backgr_light
   &_light {
@@ -329,7 +329,7 @@ summary {
     font-weight: 800;
     @include adaptiveValue("font-size", 62, 38);
     line-height: 0.7;
-    align-self: flex-end;
+    align-self: center;
     margin-left: rem(100);
     @media (max-width: $mobile){
         margin-left: rem(70);

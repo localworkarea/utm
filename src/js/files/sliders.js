@@ -37,7 +37,7 @@ function initSliders() {
 			observeParents: true,
 			slidesPerView: 1,
 			spaceBetween: 50,
-			speed: 800,
+			speed: 1500,
 
 			loop: true,
 
@@ -79,7 +79,7 @@ function initSliders() {
 			observeParents: true,
 			slidesPerView: 2,
 			spaceBetween: 30,
-			speed: 1000,
+			speed: 1500,
 			loop: true,
 			autoplay: {
 				delay: 3000,

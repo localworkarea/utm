@@ -129,7 +129,7 @@
     span {
       text-decoration: rem(6) underline;
       text-decoration-color: rgba(30, 100, 246, 0.5);
-      text-underline-offset: 0px;
+      text-underline-offset: 3px;
        
     }
   }
@@ -166,7 +166,7 @@
   &__slide {
     position: relative;
     opacity: 0;
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
     pointer-events: none;
     &.swiper-slide-active {
       opacity: 1;
@@ -419,7 +419,8 @@
       position: absolute;
       bottom: -45%;
       right: -15%;
-      background: #cfcfcf;
+      // background: #cfcfcf;
+      background-color: #FEFDFB;
       filter: blur(100px);
       opacity: 0.9;
       width: rem(363);
