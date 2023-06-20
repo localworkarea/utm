@@ -519,7 +519,7 @@
 		@media (max-width:$mobileSmall){
 			 flex-direction: column; 
 			 gap: unset;
-			 flex-wrap: unset;
+			 flex-wrap: unset !important;
 		}
 	
 		._open-submenu & {
@@ -544,7 +544,7 @@
 			  width: rem(150);
 		}
 		@media (max-width:$mobileSmall){
-			 width: 100%; 
+			 width: 100% !important; 
 		}
 	}
 	// .systems-submenu__link

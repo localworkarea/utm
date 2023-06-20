@@ -2605,8 +2605,8 @@ summary {
         -ms-flex-direction: column;
             flex-direction: column;
     gap: unset;
-    -ms-flex-wrap: unset;
-        flex-wrap: unset;
+    -ms-flex-wrap: unset !important;
+        flex-wrap: unset !important;
   }
 
   ._open-submenu .systems-submenu {
@@ -2616,7 +2616,7 @@ summary {
   }
 
   .systems-submenu__item {
-    width: 100%;
+    width: 100% !important;
   }
 
   .systems-submenu__link {
