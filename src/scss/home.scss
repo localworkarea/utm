@@ -155,9 +155,7 @@
   &__slider {
     padding-top: rem(53);
     position: relative;
-    // @media (max-width: em(750)){
-			overflow: initial !important;
-		// }
+		overflow: initial !important;
   }
   // .main-slider__wrapper
   &__wrapper {
@@ -165,11 +163,11 @@
   // .main-slider__slide
   &__slide {
     position: relative;
-    opacity: 0;
-    transition: all 0.4s ease;
+    opacity: 0 !important;
+    // transition: all 0.4s ease;
     pointer-events: none;
     &.swiper-slide-active {
-      opacity: 1;
+      opacity: 1 !important;
       pointer-events: all;
     }
     @media (max-width:em(750)){
@@ -723,12 +721,87 @@
 	}
 }
 
-.title-third {
-  font-weight: 800;
-  @include adaptiveValue("font-size", 48, 30);
-  line-height: calc(52/48);
-  color: $white-ff;
+
+
+.spollers-project {
+	// .spollers-project__wrapper
+	&__wrapper {
+    color: white;
+    display: grid;
+    grid-template-columns: 53% 47%;
+    padding-top: rem(28);
+    padding-bottom: rem(45);
+    position: relative;
+    @media (max-width: em(900)){
+        grid-template-columns: 100%;
+        padding-top: 0;
+    }
+    @media (max-width:$mobileSmall){
+      // overflow-y: auto; 
+      // height: rem(490);
+    }
+	}
+  // .spollers-project__img-ibg
+  &__img-ibg {
+    height: 100%;
+    max-height: rem(420);
+    @media (max-width: em(550)){
+        max-height: rem(260);
+        overflow: hidden;
+    }
+  }
+  // .spollers-project__info
+  &__info {
+    margin: 0 rem(50) 0 rem(67);
+    @media (max-width: em(1100)){
+        margin: 0 rem(30);
+    }
+    @media (max-width: em(900)){
+        margin: 0;
+    }
+
+  }
+  // .spollers-project__title
+  &__title {
+    font-style: italic;
+    font-weight: 300;
+    @include adaptiveValue("font-size", 30, 22);
+    line-height: calc(34/30);
+    text-transform: uppercase;
+    @include adaptiveValue("margin-bottom", 21, 28);
+    @media (max-width: em(900)){
+        text-align: left;
+        margin-left: rem(65);
+    }
+    @media (max-width:$mobileSmall){
+       margin-left: rem(40); 
+    }
+  }
+  // .spollers-project__txt
+  &__txt {
+    font-weight: 400;
+    @include adaptiveValue("font-size", 18, 20);
+    line-height: calc(22/18);
+    color: $gray-99;
+    span {
+      text-decoration: rem(5) underline;
+      text-decoration-color: rgba(30, 100, 246, 0.5);
+      text-underline-offset: 3px;
+      color: $white-ff;
+    }
+    
+    &:not(:last-child) {
+      margin-bottom: rem(15);
+    }
+    @media (max-width: em(900)){
+      margin-top: rem(24);
+    }
+    @media (max-width:$mobileSmall){
+      margin-left: rem(40); 
+   }
+  }
 }
+
 //------------------
 // === 4. PARTNERS =======================================
 //-------------------------

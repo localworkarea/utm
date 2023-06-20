@@ -1,3 +1,270 @@
-//====================================================================================================
 
-//====================================================================================================
+.footer {
+  position: relative;
+  @include adaptiveValue("padding-top", 100, 80);
+  @include adaptiveValue("padding-bottom", 80, 75);
+  // .footer__container
+  &__container {
+    display: grid;
+    grid-template-columns: auto 73%;
+    justify-content: space-between;
+    column-gap: rem(20);
+    @media (max-width: em(1200)){
+        grid-template-columns: rem(140) 1fr;
+    }
+    @media (max-width: em(490)){
+     grid-template-columns: rem(36) 1fr;   
+     grid-template-rows: auto auto;
+     row-gap: rem(37);
+     column-gap: rem(24)
+    }
+  }
+  // .footer__block-logo
+  &__block-logo {
+  }
+  // .footer__block-main
+  &__block-main {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    @media (max-width: em(900)){
+        grid-template-columns: repeat(2, auto);
+        row-gap: rem(40);
+        column-gap: rem(20)
+    }
+   
+  }
+  // .footer__block-other
+  &__block-other {
+    position: absolute;
+    left: rem(16);
+    bottom: 0;
+    @media (max-width: em(490)){
+        position: relative;
+        left: unset;
+        right: 0;
+        grid-column-start: 1;
+        grid-column-end: 3;
+
+    }
+  }
+  // .footer__copy
+  &__copy {
+    font-weight: 700;
+    font-size: rem(12);
+    line-height: calc(14/12);
+    color: $white-ff;
+    @media (max-width: em(490)){
+        text-align: right;
+    }
+  }
+  // .footer__logo
+  &__logo {
+  }
+  // .footer__logo-img-full
+  &__logo-img-full {
+    display: none;
+    @media (min-width:em(1201)){
+        display: block;
+    }
+  }
+  // .footer__logo-img-smal
+  &__logo-img-smal {
+    display: none;
+    @media (max-width: em(1200)){
+        display: block;
+    }
+    @media (max-width: em(490)){
+        width: rem(36);
+        height: auto;
+    }
+  }
+  // .footer__product
+  &__product {
+  }
+  // .footer__system
+  &__system {
+  }
+  // .footer__other
+  &__other {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    @media (max-width: em(900)){
+      flex-direction: row;
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+    @media (max-width: em(620)){
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        row-gap: rem(37);
+    }
+  }
+  // .footer__about
+  &__about {
+  }
+  // .footer__contact
+  &__contact {
+  }
+}
+
+// == PRODUCT =====================================================
+.footer-prod {
+  // .footer-prod__lable
+  &__lable {
+    display: block;
+    font-weight: 700;
+    font-size: rem(10);
+    line-height: calc(12/10);
+    text-transform: uppercase;
+    color: $white-ff;
+    @include adaptiveValue("margin-bottom", 20, 16);
+  }
+  // .footer-prod__list
+  &__list {
+    display: grid;
+    grid-template-columns: rem(190) rem(155);
+    grid-template-rows: repeat(6, auto);
+    column-gap: rem(20);
+    grid-auto-flow: column;
+    @media (max-width: em(660)){
+        grid-template-columns: rem(190);
+        grid-auto-flow: row;
+    }
+    @media (max-width: em(490)){
+        grid-template-columns: auto;
+    }
+  }
+  // .footer-prod__item
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: rem(10);
+    }
+  }
+  // .footer-prod__link
+  &__link {
+    display: inline-block;
+    font-style: normal;
+    font-weight: 400;
+    @include adaptiveValue("font-size", 15, 18);
+    line-height: calc(17/15);
+    color: $gray-80;
+    transition: all .3s ease;
+    &:hover {
+      color: $white-ff;
+    }
+  }
+  // .footer-prod__more
+  &__more {
+  }
+}
+
+// == SYSTEMS =====================================================
+.footer-syst {
+  @media (max-width: em(900)){
+    justify-self: end;
+  }
+  // .footer-syst__lable
+  &__lable {
+    display: block;
+    font-weight: 700;
+    font-size: rem(10);
+    line-height: calc(12/10);
+    text-transform: uppercase;
+    color: $gray-80;
+    @include adaptiveValue("margin-bottom", 20, 16);
+  }
+  // .footer-syst__item
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: rem(6);
+    }
+  }
+  // .footer-syst__link
+  &__link {
+    font-weight: 400;
+    font-size: rem(20);
+    line-height: 1.1333;
+    color: $white-ff;
+    transition: all .3s ease;
+    &:hover {
+      opacity: .6;
+    }
+  }
+}
+
+// == ABOUT =====================================================
+.footer-about {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  @media (max-width: em(900)){
+      align-items: flex-start;
+  }
+  // .footer-about__lable
+  &__lable {
+    font-weight: 700;
+    font-size: rem(10);
+    line-height: calc(12/10);
+    text-transform: uppercase;
+    text-align: right;
+    color: $white-ff;
+    @include adaptiveValue("margin-bottom", 20, 13);
+  }
+  // .footer-about__link
+  &__link {
+    font-weight: 400;
+    @include adaptiveValue("font-size", 16, 20);
+    line-height: calc(24/16);
+    color: $gray-80;
+    transition: all .3s ease;
+    &:hover {
+      color: $white-ff;
+    }
+  }
+}
+
+// == CONTACTS =====================================================
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  @media (max-width: em(620)){
+    align-items: flex-start;
+  }
+  // .footer-contact__lable
+  &__lable {
+    font-weight: 700;
+    font-size: rem(10);
+    line-height: calc(12/10);
+    text-transform: uppercase;
+    text-align: right;
+    color: $white-ff;
+    @include adaptiveValue("margin-bottom", 20, 13);
+    @media (max-width: em(620)){
+        text-align: left;
+    }
+  }
+  // .footer-contact__txt
+  &__txt {
+    font-weight: 400;
+    @include adaptiveValue("font-size", 16, 20);
+    line-height: calc(19/16);
+    text-align: right;
+    margin-bottom: rem(13);
+    @media (max-width: em(620)){
+      text-align: left;
+    }
+  }
+  // .footer-contact__tel
+  &__tel {
+    font-weight: 400;
+    @include adaptiveValue("font-size", 20, 24);
+    line-height: calc(24/20);
+    text-align: right;
+    color: $white-ff;
+    @media (max-width: em(620)){
+      text-align: left;
+    }
+  }
+}
