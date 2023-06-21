@@ -4,7 +4,7 @@
 	"title":"Головна"
 	})
 	<body>
-		<div class="wrapper page-dark">
+		<div class="wrapper page-dark page-index">
 			@@include('html/_header.htm',{})
 			<main class="page">
 				<section class="main">
@@ -26,19 +26,19 @@
 							</h1>
 							<div class="main__subtitle-wrap">
 								<div class="main__subtitle subtitle">Розробка<br> та виробництво</div>
-									<p class="main__txt text-main text-main_dark">Комплексних <span>систем 
-										автоматизованого управління</span>, 
-										контролю та діагностики 
-										електрообладнання 
-										для залізничного транспорту</p>
-									<div data-prlx-mouse data-prlx-cx="50" data-prlx-cy="50" data-prlx-dxy  class="main__btn-wrap">
-										<a href="#" class="main__btn">
-											<span>
-												ДИВИТИСЯ<br> ВСІ СИСТЕМИ
-												<img src="@img/icons/arrow-more.svg" alt="arrow">
-											</span>
-										</a>
-									</div>
+								<p class="main__txt text-main text-main_dark">Комплексних <span>систем 
+									автоматизованого управління</span>, 
+									контролю та діагностики 
+									електрообладнання 
+									для залізничного транспорту</p>
+								<div data-prlx-mouse data-prlx-cx="50" data-prlx-cy="50" data-prlx-dxy  class="main__btn-wrap">
+									<a data-da=".main__subtitle-wrap,750,3" href="#" class="main__btn">
+										<span>
+											ДИВИТИСЯ<br> ВСІ СИСТЕМИ
+											<img src="@img/icons/arrow-more.svg" alt="arrow">
+										</span>
+									</a>
+								</div>
 							</div>
 							
 						</div>
@@ -121,7 +121,9 @@
 										</a>
 									</article>
 								</div>
-								<div class="main-slider__pagination swiper-pagination"></div>
+								<div class="main-slider__pagination-wrapper">
+									<div class="main-slider__pagination swiper-pagination"></div>
+								</div>
 							</div>
 							<div class="main__text-backgr text-backgr">
 								<span class="text-backgr__txt">УКР</span>

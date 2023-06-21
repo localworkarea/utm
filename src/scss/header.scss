@@ -1,6 +1,3 @@
-.page-dark {}
-.page-light {}
-
 .header {
 	position: fixed;
 	width: 100%;
@@ -347,6 +344,7 @@
 	}
 }
 
+
 // PRODUCT SUBMENU ========================================================
 .product-submenu {
 	position: fixed;
@@ -407,6 +405,9 @@
 			margin-bottom: rem(18);
 			text-align: right;
 			max-width: rem(270);
+			br {
+				display: none;
+			}
 		}
 	}
 }
@@ -592,7 +593,6 @@
 	}
 }
 
-
 //Burger ===========================================
 .icon-menu {
 	display: none;
@@ -646,4 +646,67 @@
 		}
 	}
 }
+
+
+// === highlight open a page ================================
+.highlight {
+	// .highlight__home
+	&__home {
+		.page-index & {
+			color: $white-EB;
+			&::before {
+				width: 100%;
+			}
+		}
+	}
+	// .highlight__about
+	&__about {
+		.page-about & {
+			color: $white-EB;
+			&::before {
+				width: 100%;
+			}
+		}
+	}
+	// .highlight__prod
+	&__prod {
+		.page-products & {
+			color: $white-EB;
+			&::before {
+				width: 100%;
+			}
+		}
+	}
+	// .highlight__syst 
+	&__syst {
+		.page-systems & {
+			color: $white-EB;
+			&::before {
+				width: 100%;
+			}
+		}
+	}
+	// .highlight__sertif
+	&__sertif {
+		.page-sertification & {
+			color: $white-EB;
+			&::before {
+				width: 100%;
+			}
+		}
+	}
+	// .highlight__contact
+	&__contact {
+		.page-contacts & {
+			color: $white-EB;
+			&::before {
+				width: 100%;
+			}
+		}
+	}
+}
+
+
+
+
 

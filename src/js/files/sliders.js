@@ -51,24 +51,87 @@ function initSliders() {
 			// 	onlyInViewport: true,
 			// 	pageUpDown: true,
 			// },
-			pagination: {
-				el: '.main-slider__pagination',
-				clickable: true,
-				renderBullet: function(index, className) {
-					var texts = ['СРВ-1 <span class="bullet-num">01</span>', 'СЗДК <span class="bullet-num">02</span>', 'МСУД <span class="bullet-num">03</span>', 'БРУЕП <span class="bullet-num">04</span>', 'КПА МП <span class="bullet-num">05</span>', 'СПС-ПГ <span class="bullet-num">06</span>'];
-					return '<span class="' + className + '">' + texts[index] + '</span>';
-				}
-			},
+			// pagination: {
+			// 	el: '.main-slider__pagination',
+			// 	clickable: true,
+			// 	dynamicBullets: true,
+			// 	renderBullet: function(index, className) {
+			// 		var texts = ['СРВ-1 <span class="bullet-num">01</span>', 'СЗДК <span class="bullet-num">02</span>', 'МСУД <span class="bullet-num">03</span>', 'БРУЕП <span class="bullet-num">04</span>', 'КПА МП <span class="bullet-num">05</span>', 'СПС-ПГ <span class="bullet-num">06</span>'];
+			// 		return '<span class="' + className + '">' + texts[index] + '</span>';
+			// 	}
+			// },
 
 			// navigation: {
 			// 	prevEl: '.main-slider__slider .swiper-button-prev',
 			// 	nextEl: '.main-slider__slider .swiper-button-next',
 			// },
-			on: {
+			breakpoints: {
+				320: {
+					pagination: {
+						el: '.main-slider__pagination',
+						clickable: true,
+						dynamicBullets: true,
+						renderBullet: function(index, className) {
+							var texts = ['СРВ-1 <span class="bullet-num">01</span>', 'СЗДК <span class="bullet-num">02</span>', 'МСУД <span class="bullet-num">03</span>', 'БРУЕП <span class="bullet-num">04</span>', 'КПА МП <span class="bullet-num">05</span>', 'СПС-ПГ <span class="bullet-num">06</span>'];
+							return '<span class="' + className + '">' + texts[index] + '</span>';
+						}
+					},
+				},
 
+				551: {
+					pagination: {
+						el: '.main-slider__pagination',
+						clickable: true,
+						renderBullet: function(index, className) {
+							var texts = ['СРВ-1 <span class="bullet-num">01</span>', 'СЗДК <span class="bullet-num">02</span>', 'МСУД <span class="bullet-num">03</span>', 'БРУЕП <span class="bullet-num">04</span>', 'КПА МП <span class="bullet-num">05</span>', 'СПС-ПГ <span class="bullet-num">06</span>'];
+							return '<span class="' + className + '">' + texts[index] + '</span>';
+						}
+					},
+				},
+			},
+			on: {
+				init: function() {
+					adjustPagination();
+					window.addEventListener('resize', adjustPagination);
+				},
+				slideChange: function() {
+					adjustPagination();
+				},
 			}
 		});
 	}
+
+	// === Слайдер главной страницы - движение пагинации с активным буллетом  в пределах вьюпорта
+	function adjustPagination() {
+    var paginationContainer = document.querySelector('.main-slider__pagination-wrapper');
+    var activeBullet = paginationContainer.querySelector('.swiper-pagination-bullet-active');
+    var containerWidth = paginationContainer.offsetWidth;
+    var activeBulletOffset = activeBullet.offsetLeft;
+    var activeBulletWidth = activeBullet.offsetWidth;
+    var shiftAmount = 0;
+
+    if (activeBulletOffset + activeBulletWidth > containerWidth) {
+      shiftAmount = activeBulletOffset + activeBulletWidth - containerWidth + 10; // +10 для учета промежутка между буллетами
+    } else if (activeBulletOffset < 0) {
+      shiftAmount = activeBulletOffset - 10; // -10 для учета промежутка между буллетами
+    }
+
+    paginationContainer.scrollLeft += shiftAmount;
+
+    var paginationWrapper = document.querySelector('.main-slider__pagination-wrapper');
+    var paginationWrapperWidth = paginationWrapper.offsetWidth;
+    var activeBulletPosition = activeBulletOffset + shiftAmount;
+    var activeBulletLeft = activeBulletPosition - paginationWrapper.scrollLeft;
+    var activeBulletRight = activeBulletLeft + activeBulletWidth;
+
+    if (activeBulletLeft < 0) {
+      paginationWrapper.scrollLeft += activeBulletLeft;
+    } else if (activeBulletRight > paginationWrapperWidth) {
+      paginationWrapper.scrollLeft += activeBulletRight - paginationWrapperWidth;
+    }
+  }
+
+
 	if (document.querySelector('.products-about__slider')) { // Вказуємо склас потрібного слайдера
 		// Створюємо слайдер
 		new Swiper('.products-about__slider', { // Вказуємо склас потрібного слайдера

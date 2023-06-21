@@ -1,0 +1,39 @@
+.about-main {
+  position: relative;
+  @include adaptiveValue("padding-top", 165, 125);
+  @include adaptiveValue("padding-bottom", 95, 28);
+  // .about-main__container
+  &__container {
+  }
+  // .about-main__label
+  &__label {
+    color: $white-ff;
+    position: absolute;
+    top: 0;
+    right: rem(6);
+    transform: rotate(0deg);
+  }
+  // .about-main__title
+  &__title {
+    max-width: rem(1000);
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 40, 35);
+    }
+  }
+  // .about-main__body
+  &__body {
+    display: flex;
+    align-items: flex-end;
+    column-gap: rem(8);
+  }
+  // .about-main__img
+  &__img-ibg {
+
+  }
+  // .about-main__img-arrow
+  &__img-arrow {
+    @media (max-width: em(580)){
+        display: none;
+    }
+  }
+}

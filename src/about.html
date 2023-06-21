@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+	@@include('html/_head.htm',{
+	"title":"Головна"
+	})
+	<body>
+		<div class="wrapper page-dark page-about">
+			@@include('html/_header.htm',{})
+			<main class="page">
+        <section class="about-main">
+          <div class="backgr backgr_dark">
+            <img src="@img/background/bg-dark.png" alt="background">
+          </div>
+          <div class="about-main__container">
+            <div class="about-main__label label-txt label-txt_vertical">про нас.</div>
+            <h1 class="about-main__title title-main">Фокусуємось на <span>системах 
+              керування</span> та моніторингу</h1>
+            <div class="about-main__body">
+              <div class="about-main__img-ibg">
+                <img src="@img/page-about/1.jpg" alt="about">
+              </div>
+              <img class="about-main__img-arrow" src="@img/icons/arrow-down.svg" alt="arrow">
+            </div>
+          </div>
+        </section>
+        <section class="about-history">
+          <div class="backgr backgr_dark">
+            <img src="@img/background/bg-dark.png" alt="background">
+          </div>
+          <div class="about-history__text-backgr text-backgr">
+            <span data-prlx-cx="300" data-prlx-mouse class="text-backgr__txt">УКР</span>
+            <span data-prlx-cx="300" data-prlx-mouse data-prlx-dxr class="text-backgr__txt">ТРАНС</span>
+            <span data-prlx-cx="300" data-prlx-mouse class="text-backgr__txt">МАШ</span>
+          </div>
+          <div class="about-history__container">
+            <div class="about-history__profile profile-about">
+              <div class="profile-about__label label-txt label-txt_vertical">наш профіль.</div>
+              <div class="about-history__square">
+                
+              </div>
+            </div>
+          </div>
+        </section>
+				@@include('html/_partners.htm',{})
+			</main>
+			@@include('html/_footer.htm',{})
+		</div>
+		@@include('html/_js.htm',{})
+	</body>
+</html>

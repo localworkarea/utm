@@ -3,6 +3,8 @@ import { isMobile } from "./functions.js";
 // Підключення списку активних модулів
 import { flsModules } from "./modules.js";
 
+
+
 // Открытие/закрытие .header__language ===========================================
 const headerLanguageBtn = document.querySelector('.header__language');
 const headerLngs = document.querySelector('.header__lngs');
@@ -31,73 +33,6 @@ if (headerLanguageBtn) {
 }
 
 // Открытие и закрытие .menu__link_btn =======================
-// const menuLinkBtns = document.querySelectorAll('.menu__link_btn');
-// if (menuLinkBtns) {
-//     const header = document.querySelector('.header');
-    
-//     menuLinkBtns.forEach((button) => {
-//       button.addEventListener('click', toggleOpenClass);
-//     });
-
-//     function toggleOpenClass(event) {
-//       const target = event.currentTarget;
-//       const parentItem = target.parentNode;
-//       const isOpen = target.classList.contains('_open');
-//       const isSubmenuOpen = parentItem.classList.contains('_open-submenu');
-
-//       if (!isOpen) {
-//         closeAllMenuLinkBtns();
-//         closeAllSubmenus();
-//         target.classList.add('_open');
-//         parentItem.classList.add('_open-submenu');
-//         header.classList.add('_open-menu-sub'); // Добавляем класс родительскому элементу .header
-//         document.addEventListener('click', closeIfOutsideClick);
-//       } else {
-//         target.classList.remove('_open');
-//         parentItem.classList.remove('_open-submenu');
-//         header.classList.remove('_open-menu-sub'); // Удаляем класс у родительского элемента .header
-//         document.removeEventListener('click', closeIfOutsideClick);
-//       }
-
-//       event.stopPropagation();
-//     }
-
-//     function closeIfOutsideClick(event) {
-//       const isMenuLinkBtn = event.target.closest('.menu__link_btn');
-//       const isMenuLinkBtnDescendant = event.target.closest('.menu__link_btn *');
-
-//       if (!isMenuLinkBtn && !isMenuLinkBtnDescendant) {
-//         closeAllMenuLinkBtns();
-//         closeAllSubmenus();
-//         header.classList.remove('_open-menu-sub'); // Удаляем класс у родительского элемента .header
-//         document.removeEventListener('click', closeIfOutsideClick);
-//       }
-//     }
-
-//     function closeAllMenuLinkBtns() {
-//       menuLinkBtns.forEach((button) => {
-//         button.classList.remove('_open');
-//       });
-//     }
-
-//     function closeAllSubmenus() {
-//       const submenuItems = document.querySelectorAll('.menu__item._open-submenu');
-
-//       submenuItems.forEach((item) => {
-//         item.classList.remove('_open-submenu');
-//       });
-//     }
-
-//     document.addEventListener('keydown', function(event) {
-//       if (event.key === 'Escape') {
-//         closeAllMenuLinkBtns();
-//         closeAllSubmenus();
-//         header.classList.remove('_open-menu-sub'); // Удаляем класс у родительского элемента .header
-//         document.removeEventListener('click', closeIfOutsideClick);
-//       }
-//     });
-// }
-
 const menuLinkBtns = document.querySelectorAll('.menu__link_btn');
 
 if (menuLinkBtns) {
@@ -181,6 +116,7 @@ if (menuLinkBtns) {
     });
   });
 }
+
 
 
 

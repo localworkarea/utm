@@ -12,11 +12,17 @@
     @media (max-width: em(1200)){
         grid-template-columns: rem(140) 1fr;
     }
-    @media (max-width: em(490)){
-     grid-template-columns: rem(36) 1fr;   
+    @media (max-width: em(600)){
+     grid-template-columns: auto 1fr;   
      grid-template-rows: auto auto;
      row-gap: rem(37);
      column-gap: rem(24)
+    }
+    // @media (max-width:$mobileSmall){
+    //   // grid-template-columns: r 1fr; 
+    // }
+    @media (max-width: em(450)){
+      column-gap: rem(16);
     }
   }
   // .footer__block-logo
@@ -27,18 +33,24 @@
     display: grid;
     grid-template-columns: repeat(3, auto);
     @media (max-width: em(900)){
-        grid-template-columns: repeat(2, auto);
+        grid-template-columns: auto auto;
         row-gap: rem(40);
-        column-gap: rem(20)
+        column-gap: rem(30)
     }
-   
+   @media (max-width:$mobileSmall){
+    grid-template-columns: auto 110px;
+   }
+   @media (max-width: em(450)){
+      grid-template-columns: auto;
+      grid-template-rows: auto;
+   }
   }
   // .footer__block-other
   &__block-other {
     position: absolute;
     left: rem(16);
     bottom: 0;
-    @media (max-width: em(490)){
+    @media (max-width: em(600)){
         position: relative;
         left: unset;
         right: 0;
@@ -53,7 +65,7 @@
     font-size: rem(12);
     line-height: calc(14/12);
     color: $white-ff;
-    @media (max-width: em(490)){
+    @media (max-width: em(600)){
         text-align: right;
     }
   }
@@ -73,9 +85,12 @@
     @media (max-width: em(1200)){
         display: block;
     }
+    @media (max-width: em(600)){
+        width: rem(60);
+        height: auto;
+    }
     @media (max-width: em(490)){
         width: rem(36);
-        height: auto;
     }
   }
   // .footer__product
@@ -99,6 +114,10 @@
         align-items: flex-start;
         row-gap: rem(37);
     }
+    @media (max-width: em(450)){
+      grid-column-start: 1;
+      grid-column-end: 2;
+    }
   }
   // .footer__about
   &__about {
@@ -118,7 +137,7 @@
     line-height: calc(12/10);
     text-transform: uppercase;
     color: $white-ff;
-    @include adaptiveValue("margin-bottom", 20, 16);
+    @include adaptiveValue("margin-bottom", 20, 10, 0, 1920, 480);
   }
   // .footer-prod__list
   &__list {
@@ -127,18 +146,22 @@
     grid-template-rows: repeat(6, auto);
     column-gap: rem(20);
     grid-auto-flow: column;
-    @media (max-width: em(660)){
+    @media (max-width: em(700)){
         grid-template-columns: rem(190);
         grid-auto-flow: row;
     }
     @media (max-width: em(490)){
         grid-template-columns: auto;
+        max-width: rem(280);
     }
   }
   // .footer-prod__item
   &__item {
     &:not(:last-child) {
       margin-bottom: rem(10);
+      @media (max-width: em(450)){
+          margin-bottom: rem(20);
+      }
     }
   }
   // .footer-prod__link
@@ -146,7 +169,7 @@
     display: inline-block;
     font-style: normal;
     font-weight: 400;
-    @include adaptiveValue("font-size", 15, 18);
+    @include adaptiveValue("font-size", 15, 18, 0, 1920 , 480);
     line-height: calc(17/15);
     color: $gray-80;
     transition: all .3s ease;
@@ -162,8 +185,18 @@
 // == SYSTEMS =====================================================
 .footer-syst {
   @media (max-width: em(900)){
-    justify-self: end;
+    justify-self: flex-start;
   }
+	// .footer-syst__mob-wrap
+	&__mob-wrap {
+    display: none;
+    @media (max-width: em(450)){
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: rem(10);
+        row-gap: rem(3);
+    }
+	}
   // .footer-syst__lable
   &__lable {
     display: block;
@@ -172,7 +205,10 @@
     line-height: calc(12/10);
     text-transform: uppercase;
     color: $gray-80;
-    @include adaptiveValue("margin-bottom", 20, 16);
+    @include adaptiveValue("margin-bottom", 20, 10, 0, 1920, 480);
+    @media (max-width: em(450)){
+        color: $white-ff;
+    }
   }
   // .footer-syst__item
   &__item {
@@ -183,12 +219,15 @@
   // .footer-syst__link
   &__link {
     font-weight: 400;
-    font-size: rem(20);
+    @include adaptiveValue("font-size", 20, 16, 0, 1920, 480);
     line-height: 1.1333;
     color: $white-ff;
     transition: all .3s ease;
     &:hover {
       opacity: .6;
+    }
+    @media (max-width: em(450)){
+        color: $gray-80;
     }
   }
 }
@@ -209,7 +248,7 @@
     text-transform: uppercase;
     text-align: right;
     color: $white-ff;
-    @include adaptiveValue("margin-bottom", 20, 13);
+    @include adaptiveValue("margin-bottom", 20, 10, 0, 1920, 480);
   }
   // .footer-about__link
   &__link {
@@ -240,7 +279,7 @@
     text-transform: uppercase;
     text-align: right;
     color: $white-ff;
-    @include adaptiveValue("margin-bottom", 20, 13);
+    @include adaptiveValue("margin-bottom", 20, 10, 0, 1920, 480);
     @media (max-width: em(620)){
         text-align: left;
     }
@@ -259,7 +298,8 @@
   // .footer-contact__tel
   &__tel {
     font-weight: 400;
-    @include adaptiveValue("font-size", 20, 24);
+    font-size: rem(20);
+    // @include adaptiveValue("font-size", 20, 24);
     line-height: calc(24/20);
     text-align: right;
     color: $white-ff;
