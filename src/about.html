@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	@@include('html/_head.htm',{
-	"title":"Головна"
+	"title":"Про нас"
 	})
 	<body>
 		<div class="wrapper page-dark page-about">
@@ -12,7 +12,7 @@
             <img src="@img/background/bg-dark.png" alt="background">
           </div>
           <div class="about-main__container">
-            <div class="about-main__label label-txt label-txt_vertical">про нас.</div>
+            <div data-da=".profile-about__block-info,768,4" class="about-main__label label-txt label-txt_vertical">про нас.</div>
             <h1 class="about-main__title title-main">Фокусуємось на <span>системах 
               керування</span> та моніторингу</h1>
             <div class="about-main__body">
@@ -32,13 +32,76 @@
             <span data-prlx-cx="300" data-prlx-mouse data-prlx-dxr class="text-backgr__txt">ТРАНС</span>
             <span data-prlx-cx="300" data-prlx-mouse class="text-backgr__txt">МАШ</span>
           </div>
+          <div class="about-history__text-backgr-mob text-backgr">
+            <span class="text-backgr__txt">УКР</span>
+            <span class="text-backgr__txt">ТРАНС</span>
+            <span class="text-backgr__txt">МАШ</span>
+          </div>
           <div class="about-history__container">
-            <div class="about-history__profile profile-about">
+            
+            <div class="about-history__profile-about profile-about">
               <div class="profile-about__label label-txt label-txt_vertical">наш профіль.</div>
-              <div class="about-history__square">
-                
+              <span class="about-history__decor-plus decor-plus"></span>
+              <div data-da=".profile-about__block-info,768,1" data-watch class="profile-about__square square">
+                 <div class="square__item">
+                  <div class="square__numb">
+                    <div class="square__count" data-digits-counter data-digits-counter-speed="2000">20</div><div class="square__count square__count_plus">+</div>
+                  </div>
+                  <p class="square__txt"><span>років</span><br> досвіду роботи</p>
+                 </div>
+                 <div class="square__item">
+                  <div class="square__numb">
+                    <div class="square__count" data-digits-counter data-digits-counter-speed="2000">40</div><div class="square__count square__count_plus">+</div>
+                  </div>
+                  <p class="square__txt">Виконаних<br><span>проектів</span></p>
+                 </div>
+              </div>
+              <div class="profile-about__block-info">
+                <h2 class="profile-about__title title-first-light">Наші <span>системи застосовуються в різних сферах</span> залізничного транспорту,</h2>
+                <p class="profile-about__txt-main">Включаючи<br> ПАСАЖИРСЬКИЙ<br> ТА ВАНТАЖНИЙ РУХОМИЙ СКЛАД</p>
+                <p class="profile-about__txt-small text-main text-main_dark">Ми розуміємо важливість безперебійної роботи електрообладнання в цих галузях, тому забезпечуємо високу якість 
+                  та надійність наших систем.</p>
               </div>
             </div>
+
+            <div class="about-history__history-about history-about">
+              <div class="history-about__info">
+                <h2 class="history-about__title title-second">Історія</h2>
+                <p class="history-about__subtitle">Науково-виробниче підприємство УКРТРАНСМАШ засновано експертами в галузі машинобудування.</p>
+                <p class="history-about__txt text-main text-main_dark"><span>Наша команда.</span><br>
+                  Висококваліфіковані інженери  і технічні 
+                  спеціалісти з понад 20-річним досвідом у розробці, впровадженні та інженерному супроводі систем електричної тяги та електрообладнання залізничного транспорту.</p>
+                <p class="history-about__txt history-about__txt_mb text-main text-main_dark"><span>Ми розробляли залізничний рухомий 
+                    склад разом з провідними вітчизняними 
+                    та закордонними підприємствами:</span></p>
+                <ul class="history-about__list">
+                  <li class="history-about__item text-main text-main_dark">ПАТ «Луганськтепловоз»</li>
+                  <li class="history-about__item text-main text-main_dark">ПАТ «Крюківський вагонобудівний завод»</li>
+                  <li class="history-about__item text-main text-main_dark">ТОВ «Миколаївський тепловозоремонтний завод»</li>
+                  <li class="history-about__item text-main text-main_dark">ПрАТ «Київський електровагоноремонтний завод»</li>
+                  <li class="history-about__item text-main text-main_dark">ТОВ «Полтавський тепловозоремонтний завод»</li>
+                  <li class="history-about__item text-main text-main_dark">General Electric</li>
+                  <li class="history-about__item text-main text-main_dark">Cummins</li>
+                  <li class="history-about__item text-main text-main_dark">Zeppelin Power Systems</li>
+                  <li class="history-about__item text-main text-main_dark">Bombardier Tr</li>
+                  <li class="history-about__item text-main text-main_dark">Skoda V</li>
+                  <li class="history-about__item text-main text-main_dark">Hyundai Rotem</li>
+                  <li class="history-about__item text-main text-main_dark">Baltic Loco Group</li>
+                  <li class="history-about__item text-main text-main_dark">AS “Daugavpils Lokomotīvju Remonta Rūpnīca”</li>
+                  <li class="history-about__item text-main text-main_dark">ZOZ</li>
+                </ul>
+              </div>
+              <div class="history-about__images">
+                <div class="history-about__label label-txt label-txt_horizontal">заснування<br>
+                  та досвід<br>
+                  НВП УКРТРАНСМАШ.
+                </div>
+                <div class="history-about__img-ibg">
+                  <img src="@img/page-about/2.jpg" alt="img">
+                </div>
+              </div>
+            </div>
+
           </div>
         </section>
 				@@include('html/_partners.htm',{})

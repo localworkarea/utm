@@ -155,10 +155,22 @@
   // .main__txt
   &__txt {
     span {
-      text-decoration: rem(6) underline;
-      text-decoration-color: rgba(30, 100, 246, 0.5);
-      text-underline-offset: 3px;
-       
+      // text-decoration: rem(6) underline;
+      // text-decoration-color: rgba(30, 100, 246, 0.5);
+      // text-underline-offset: 3px;
+      display: inline-block;
+       position: relative;
+       &::before {
+        content:'';
+        position: absolute;
+        bottom: 0;
+        z-index: -1;
+        left: 0;
+        width: 103%;
+        height: rem(8);
+        background-color: $blue-1E-F6;
+        opacity: 0.5;
+       }
     }
   }
   // .main__slider
@@ -832,10 +844,23 @@
     line-height: calc(22/18);
     color: $gray-99;
     span {
-      text-decoration: rem(5) underline;
-      text-decoration-color: rgba(30, 100, 246, 0.5);
-      text-underline-offset: 3px;
+      // text-decoration: rem(5) underline;
+      // text-decoration-color: rgba(30, 100, 246, 0.5);
+      // text-underline-offset: 3px;
       color: $white-ff;
+      display: inline-block;
+       position: relative;
+       &::before {
+        content:'';
+        position: absolute;
+        bottom: 0;
+        z-index: -1;
+        left: 0;
+        width: 102%;
+        height: rem(8);
+        background-color: $blue-1E-F6;
+        opacity: 0.5;
+       }
     }
     
     &:not(:last-child) {

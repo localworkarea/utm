@@ -34,6 +34,7 @@ $gray-A8: #A8A8A8;
 $gray-A5: #A5A5A5;
 $black-00: #000000;
 $black-1A: #1A1A1A;
+$black-28: #282828;
 $white-ff: #ffffff;
 $white-EB: #EBEBEB;
 $blue-56-FF: #568DFF;
@@ -173,3 +174,4 @@ body {
 // Підключення стилів окремих сторінок
 @import "home";
 @import "about";
+@import "systems";

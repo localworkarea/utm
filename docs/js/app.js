@@ -4125,7 +4125,7 @@
                             clickable: true,
                             dynamicBullets: true,
                             renderBullet: function(index, className) {
-                                var texts = [ 'СРВ-1 <span class="bullet-num">01</span>', 'СЗДК <span class="bullet-num">02</span>', 'МСУД <span class="bullet-num">03</span>', 'БРУЕП <span class="bullet-num">04</span>', 'КПА МП <span class="bullet-num">05</span>', 'СПС-ПГ <span class="bullet-num">06</span>' ];
+                                var texts = [ 'СПС-ПГ <span class="bullet-num">01</span>', 'СЗДК <span class="bullet-num">02</span>', 'МСУД <span class="bullet-num">03</span>', 'БРУЕП <span class="bullet-num">04</span>', 'КПА МП <span class="bullet-num">05</span>', 'СРВ-1 <span class="bullet-num">06</span>' ];
                                 return '<span class="' + className + '">' + texts[index] + "</span>";
                             }
                         }
@@ -4135,7 +4135,7 @@
                             el: ".main-slider__pagination",
                             clickable: true,
                             renderBullet: function(index, className) {
-                                var texts = [ 'СРВ-1 <span class="bullet-num">01</span>', 'СЗДК <span class="bullet-num">02</span>', 'МСУД <span class="bullet-num">03</span>', 'БРУЕП <span class="bullet-num">04</span>', 'КПА МП <span class="bullet-num">05</span>', 'СПС-ПГ <span class="bullet-num">06</span>' ];
+                                var texts = [ 'СПС-ПГ <span class="bullet-num">01</span>', 'СЗДК <span class="bullet-num">02</span>', 'МСУД <span class="bullet-num">03</span>', 'БРУЕП <span class="bullet-num">04</span>', 'КПА МП <span class="bullet-num">05</span>', 'СРВ-1 <span class="bullet-num">06</span>' ];
                                 return '<span class="' + className + '">' + texts[index] + "</span>";
                             }
                         }
@@ -5179,6 +5179,100 @@
                 autoHide: false
             });
         }));
+        class ScrollWatcher {
+            constructor(props) {
+                let defaultConfig = {
+                    logging: true
+                };
+                this.config = Object.assign(defaultConfig, props);
+                this.observer;
+                !document.documentElement.classList.contains("watcher") ? this.scrollWatcherRun() : null;
+            }
+            scrollWatcherUpdate() {
+                this.scrollWatcherRun();
+            }
+            scrollWatcherRun() {
+                document.documentElement.classList.add("watcher");
+                this.scrollWatcherConstructor(document.querySelectorAll("[data-watch]"));
+            }
+            scrollWatcherConstructor(items) {
+                if (items.length) {
+                    this.scrollWatcherLogging(`Прокинувся, стежу за об'єктами (${items.length})...`);
+                    let uniqParams = uniqArray(Array.from(items).map((function(item) {
+                        return `${item.dataset.watchRoot ? item.dataset.watchRoot : null}|${item.dataset.watchMargin ? item.dataset.watchMargin : "0px"}|${item.dataset.watchThreshold ? item.dataset.watchThreshold : 0}`;
+                    })));
+                    uniqParams.forEach((uniqParam => {
+                        let uniqParamArray = uniqParam.split("|");
+                        let paramsWatch = {
+                            root: uniqParamArray[0],
+                            margin: uniqParamArray[1],
+                            threshold: uniqParamArray[2]
+                        };
+                        let groupItems = Array.from(items).filter((function(item) {
+                            let watchRoot = item.dataset.watchRoot ? item.dataset.watchRoot : null;
+                            let watchMargin = item.dataset.watchMargin ? item.dataset.watchMargin : "0px";
+                            let watchThreshold = item.dataset.watchThreshold ? item.dataset.watchThreshold : 0;
+                            if (String(watchRoot) === paramsWatch.root && String(watchMargin) === paramsWatch.margin && String(watchThreshold) === paramsWatch.threshold) return item;
+                        }));
+                        let configWatcher = this.getScrollWatcherConfig(paramsWatch);
+                        this.scrollWatcherInit(groupItems, configWatcher);
+                    }));
+                } else this.scrollWatcherLogging("Сплю, немає об'єктів для стеження. ZzzZZzz");
+            }
+            getScrollWatcherConfig(paramsWatch) {
+                let configWatcher = {};
+                if (document.querySelector(paramsWatch.root)) configWatcher.root = document.querySelector(paramsWatch.root); else if (paramsWatch.root !== "null") this.scrollWatcherLogging(`Эмм... батьківського об'єкта ${paramsWatch.root} немає на сторінці`);
+                configWatcher.rootMargin = paramsWatch.margin;
+                if (paramsWatch.margin.indexOf("px") < 0 && paramsWatch.margin.indexOf("%") < 0) {
+                    this.scrollWatcherLogging(`йой, налаштування data-watch-margin потрібно задавати в PX або %`);
+                    return;
+                }
+                if (paramsWatch.threshold === "prx") {
+                    paramsWatch.threshold = [];
+                    for (let i = 0; i <= 1; i += .005) paramsWatch.threshold.push(i);
+                } else paramsWatch.threshold = paramsWatch.threshold.split(",");
+                configWatcher.threshold = paramsWatch.threshold;
+                return configWatcher;
+            }
+            scrollWatcherCreate(configWatcher) {
+                this.observer = new IntersectionObserver(((entries, observer) => {
+                    entries.forEach((entry => {
+                        this.scrollWatcherCallback(entry, observer);
+                    }));
+                }), configWatcher);
+            }
+            scrollWatcherInit(items, configWatcher) {
+                this.scrollWatcherCreate(configWatcher);
+                items.forEach((item => this.observer.observe(item)));
+            }
+            scrollWatcherIntersecting(entry, targetElement) {
+                if (entry.isIntersecting) {
+                    !targetElement.classList.contains("_watcher-view") ? targetElement.classList.add("_watcher-view") : null;
+                    this.scrollWatcherLogging(`Я бачу ${targetElement.classList}, додав клас _watcher-view`);
+                } else {
+                    targetElement.classList.contains("_watcher-view") ? targetElement.classList.remove("_watcher-view") : null;
+                    this.scrollWatcherLogging(`Я не бачу ${targetElement.classList}, прибрав клас _watcher-view`);
+                }
+            }
+            scrollWatcherOff(targetElement, observer) {
+                observer.unobserve(targetElement);
+                this.scrollWatcherLogging(`Я перестав стежити за ${targetElement.classList}`);
+            }
+            scrollWatcherLogging(message) {
+                this.config.logging ? functions_FLS(`[Спостерігач]: ${message}`) : null;
+            }
+            scrollWatcherCallback(entry, observer) {
+                const targetElement = entry.target;
+                this.scrollWatcherIntersecting(entry, targetElement);
+                targetElement.hasAttribute("data-watch-once") && entry.isIntersecting ? this.scrollWatcherOff(targetElement, observer) : null;
+                document.dispatchEvent(new CustomEvent("watcherCallback", {
+                    detail: {
+                        entry
+                    }
+                }));
+            }
+        }
+        modules_flsModules.watcher = new ScrollWatcher({});
         let addWindowScrollEvent = false;
         function headerScroll() {
             addWindowScrollEvent = true;
@@ -5205,6 +5299,37 @@
                 }
                 scrollDirection = scrollTop <= 0 ? 0 : scrollTop;
             }));
+        }
+        function digitsCounter() {
+            if (document.querySelectorAll("[data-digits-counter]").length) document.querySelectorAll("[data-digits-counter]").forEach((element => {
+                element.dataset.digitsCounter = element.innerHTML;
+                element.innerHTML = `0`;
+            }));
+            function digitsCountersInit(digitsCountersItems) {
+                let digitsCounters = digitsCountersItems ? digitsCountersItems : document.querySelectorAll("[data-digits-counter]");
+                if (digitsCounters.length) digitsCounters.forEach((digitsCounter => {
+                    digitsCountersAnimate(digitsCounter);
+                }));
+            }
+            function digitsCountersAnimate(digitsCounter) {
+                let startTimestamp = null;
+                const duration = parseInt(digitsCounter.dataset.digitsCounterSpeed) ? parseInt(digitsCounter.dataset.digitsCounterSpeed) : 1e3;
+                const startValue = parseInt(digitsCounter.dataset.digitsCounter);
+                const startPosition = 0;
+                const step = timestamp => {
+                    if (!startTimestamp) startTimestamp = timestamp;
+                    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                    digitsCounter.innerHTML = Math.floor(progress * (startPosition + startValue));
+                    if (progress < 1) window.requestAnimationFrame(step);
+                };
+                window.requestAnimationFrame(step);
+            }
+            function digitsCounterAction(e) {
+                const entry = e.detail.entry;
+                const targetElement = entry.target;
+                if (targetElement.querySelectorAll("[data-digits-counter]").length) digitsCountersInit(targetElement.querySelectorAll("[data-digits-counter]"));
+            }
+            document.addEventListener("watcherCallback", digitsCounterAction);
         }
         setTimeout((() => {
             if (addWindowScrollEvent) {
@@ -5316,62 +5441,38 @@
         }
         const menuLinkBtns = document.querySelectorAll(".menu__link_btn");
         if (menuLinkBtns) {
-            const header = document.querySelector(".header");
-            menuLinkBtns.forEach((button => {
-                button.addEventListener("click", toggleOpenClass);
+            const submenuLinks = document.querySelectorAll(".product-submenu__link");
+            menuLinkBtns.forEach((btn => {
+                btn.addEventListener("click", (() => {
+                    const isOpen = btn.classList.contains("_open");
+                    menuLinkBtns.forEach((btn => {
+                        btn.classList.remove("_open");
+                        btn.parentNode.classList.remove("_open-submenu");
+                    }));
+                    if (!isOpen) {
+                        btn.classList.add("_open");
+                        btn.parentNode.classList.add("_open-submenu");
+                        document.querySelector(".header").classList.add("_open-menu-sub");
+                    } else document.querySelector(".header").classList.remove("_open-menu-sub");
+                }));
             }));
-            function toggleOpenClass(event) {
-                const target = event.currentTarget;
-                const parentItem = target.parentNode;
-                const isOpen = target.classList.contains("_open");
-                parentItem.classList.contains("_open-submenu");
-                const isSubMenuLink = event.target.closest(".product-submenu__link, .systems-submenu__link");
-                if (!isSubMenuLink) if (!isOpen) {
-                    closeAllMenuLinkBtns();
-                    closeAllSubmenus();
-                    target.classList.add("_open");
-                    parentItem.classList.add("_open-submenu");
-                    header.classList.add("_open-menu-sub");
-                    document.addEventListener("click", closeIfOutsideClick);
-                } else {
-                    target.classList.remove("_open");
-                    parentItem.classList.remove("_open-submenu");
-                    header.classList.remove("_open-menu-sub");
-                    document.removeEventListener("click", closeIfOutsideClick);
-                }
-                event.stopPropagation();
-            }
-            function closeIfOutsideClick(event) {
-                const isMenuLinkBtn = event.target.closest(".menu__link_btn");
-                const isMenuLinkBtnDescendant = event.target.closest(".menu__link_btn *");
-                const isMenuItem = event.target.closest(".menu__item");
-                const isMenuSublist = event.target.closest(".menu__sublist");
-                const isMenuSublistDescendant = event.target.closest(".menu__sublist *");
-                const isProductSubmenuItem = event.target.closest(".product-submenu__item");
-                const isSystemsSubmenuItem = event.target.closest(".systems-submenu__item");
-                if (!isMenuLinkBtn && !isMenuLinkBtnDescendant && !isMenuItem && !isMenuSublist && !isMenuSublistDescendant && !isProductSubmenuItem && !isSystemsSubmenuItem) {
-                    closeAllMenuLinkBtns();
-                    closeAllSubmenus();
-                    header.classList.remove("_open-menu-sub");
-                    document.removeEventListener("click", closeIfOutsideClick);
-                }
-            }
-            function closeAllMenuLinkBtns() {
-                menuLinkBtns.forEach((button => {
-                    button.classList.remove("_open");
-                }));
-            }
-            function closeAllSubmenus() {
-                const submenuItems = document.querySelectorAll(".menu__item._open-submenu");
-                submenuItems.forEach((item => {
-                    item.classList.remove("_open-submenu");
-                }));
-            }
-            const submenuLinks = document.querySelectorAll(".product-submenu__link, .systems-submenu__link");
             submenuLinks.forEach((link => {
                 link.addEventListener("click", (event => {
                     event.stopPropagation();
                 }));
+            }));
+            document.addEventListener("click", (event => {
+                const target = event.target;
+                const header = document.querySelector(".header");
+                const isMenuLinkBtn = target.classList.contains("menu__link_btn") || target.closest(".menu__link_btn");
+                const isHeader = target.classList.contains("header") || target.closest(".header");
+                if (!isMenuLinkBtn && !isHeader) {
+                    menuLinkBtns.forEach((btn => {
+                        btn.classList.remove("_open");
+                        btn.parentNode.classList.remove("_open-submenu");
+                    }));
+                    header.classList.remove("_open-menu-sub");
+                }
             }));
         }
         window["FLS"] = true;
@@ -5383,5 +5484,6 @@
         tabs();
         showMore();
         headerScroll();
+        digitsCounter();
     })();
 })();

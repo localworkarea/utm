@@ -1,3 +1,5 @@
+// --------------------------------------
+// === ABOUT-MAIN SECTION ====================================
 .about-main {
   position: relative;
   @include adaptiveValue("padding-top", 165, 125);
@@ -12,6 +14,17 @@
     top: 0;
     right: rem(6);
     transform: rotate(0deg);
+    @media (max-width: em(850)){
+        opacity: 0;
+    }
+    @media (max-width:$mobile){
+       opacity: 1; 
+       top: 58%;
+       right: 0;
+    }
+    @media (max-width: em(390)){
+        top: 56%;
+    }
   }
   // .about-main__title
   &__title {
@@ -28,12 +41,254 @@
   }
   // .about-main__img
   &__img-ibg {
-
+    height: 100%;
+    max-height: 420px;
+    overflow: hidden;
   }
   // .about-main__img-arrow
   &__img-arrow {
     @media (max-width: em(580)){
         display: none;
+    }
+  }
+}
+
+// --------------------------------------
+// === ABOUT-MAIN SECTION ====================================
+.about-history {
+  position: relative;
+  @include adaptiveValue("padding-top", 95, 28);
+  @include adaptiveValue("padding-bottom", 190, 70);
+  // .about-history__text-backgr
+  &__text-backgr {
+    top: rem(50);
+    max-width: rem(1340);
+  }
+  // .about-history__text-backgr-mob 
+  &__text-backgr-mob {
+    display: none;
+    @media (max-width:$mobile){
+       display: block; 
+       top: 50%;
+    }
+  }
+  // .about-history__container
+  &__container {
+  }
+  // .about-history__profile-about
+  &__profile-about {
+  }
+  // .about-history__decor-plus
+  &__decor-plus {
+    position: absolute;
+    bottom: 22%;
+    right: 3%;
+    @media (max-width: em(950)){
+        right: -10%;
+    }
+  }
+  // .about-history__history-about
+  &__history-about {
+  }
+}
+
+.profile-about {
+  position: relative;
+  @include adaptiveValue("margin-bottom", 63, 50);
+
+  display: flex;
+  justify-content: space-between;
+  column-gap: rem(16);
+  // .profile-about__label
+  &__label {
+    color: $white-ff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    @media (max-width: em(1050)){
+        display: none;
+    }
+  }
+  // .profile-about__square
+  &__square {
+  }
+  // .profile-about__block-info
+  &__block-info {
+    width: 100%;
+    max-width: rem(684);
+    @media (max-width:$mobile){
+      max-width: unset;
+       display: flex;
+       flex-direction: column; 
+    }
+  }
+  // .profile-about__title
+  &__title {
+    text-align: right;
+    margin-bottom: rem(35);
+    @media (max-width:$mobile){
+       width: 85%; 
+       align-self: flex-end;
+    }
+  }
+  // .profile-about__txt-main
+  &__txt-main {
+    font-weight: 700;
+    @include adaptiveValue("font-size", 24, 20, 0, 1920, 480);
+    line-height: calc(28/24);
+    text-transform: uppercase;
+    color: $white-ff;
+    width: 100%;
+
+    @include adaptiveValue("margin-left", 120, 50, 0, 1050, 768);
+    @include adaptiveValue("margin-left", 1, 0, 3, 768, 766);
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 20, 10);
+    }
+  }
+  // .profile-about__txt-small
+  &__txt-small {
+    max-width: rem(380);
+    @include adaptiveValue("margin-left", 120, 50, 0, 1050, 768);
+    @include adaptiveValue("margin-left", 1, 0, 3, 768, 766);
+  }
+}
+
+.square {
+  @include adaptiveValue("margin-left", 100, 0, 0, 1200, 992);
+  border: rem(1) solid $white-ff;
+  padding: rem(65) rem(53) rem(75) rem(73);
+  
+  display: flex;
+  flex-direction: column;
+  height: min-content;
+  width: min-content;
+  @include adaptiveValue("row-gap", 40, 20, 0, 1920, 480);
+  @media (max-width:$mobile){
+     margin-bottom: rem(55); 
+     padding: rem(42) rem(89) rem(42) rem(89);
+  }
+  @media (max-width:em(390)){
+    padding: rem(42) rem(70) rem(42) rem(70);
+  }
+  // .square__item
+  &__item {
+  }
+  // .square__numb
+  &__numb {
+    display: flex;
+  }
+  // .square__count
+  &__count {
+    font-weight: 800;
+    @include adaptiveValue("font-size", 48, 30, 0, 1920, 480);
+    line-height: calc(52/48);
+    text-transform: uppercase;
+    color: $blue-56-FF;
+    &_plus {
+      font-weight: 300;
+      font-style: italic;
+    }
+  }
+  // .square__txt
+  &__txt {
+    font-weight: 700;
+    font-size: rem(16);
+    line-height: calc(18/16);
+    color: $white-ff;
+    text-transform: uppercase;
+    white-space:nowrap;
+    span {
+      font-weight: 300;
+      font-style: italic;
+    }
+  }
+}
+
+.history-about {
+  display: grid;
+  grid-template-columns: rem(430) 1fr;
+  column-gap: rem(71);
+  @media (max-width: em(1000)){
+    grid-template-columns: 50% auto;
+    column-gap: rem(40);
+  }
+  @media (max-width:$mobile){
+     grid-template-columns: auto;
+     grid-template-rows: auto; 
+  }
+  // .history-about__info
+  &__info {
+    @media (max-width:$mobile){
+       order: 2; 
+    }
+  }
+  // .history-about__title
+  &__title {
+    color: $white-ff;
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 40, 23, 0, 1920, 480);
+    }
+  }
+  // .history-about__subtitle
+  &__subtitle {
+    color: $gray-B5;
+    @include adaptiveValue("font-size", 22, 20);
+    font-weight: 500;
+    line-height: calc(24/22);
+    @include adaptiveValue("margin-left", 98, 67, 0, 1920, 480);
+    &:not(:last-child) {
+      margin-bottom: rem(40);
+    }
+  }
+  // .history-about__txt
+  &__txt {
+      @include adaptiveValue("margin-bottom", 23, 37, 0, 1920, 480);
+      &_mb {
+        margin-bottom: rem(16) !important;
+      }
+  }
+  // .history-about__list
+  &__list {
+  }
+  // .history-about__item
+  &__item {
+  }
+  // .history-about__images
+  &__images {
+    @media (max-width:$mobile){
+       order: 1; 
+       display: flex;
+       flex-direction: row;
+       justify-content: space-between;
+       align-items: flex-end;
+       margin-bottom: rem(35);
+    }
+  }
+  // .history-about__label
+  &__label {
+    color: $white-ff;
+    text-align: right;
+    margin-bottom: rem(90);
+    @media (max-width: em(1000)){
+      margin-bottom: rem(35);
+    }
+    @media (max-width:$mobile){
+       text-align: left; 
+       margin-bottom: rem(0);
+    }
+  }
+  // .history-about__img-ibg
+  &__img-ibg {
+    margin-right: rem(31);
+    @media (max-width: em(1000)){
+      margin-right: 0;
+    }
+    @media (max-width:$mobile){
+       width: 69%; 
+    }
+    @media (max-width: em(435)){
+        width: 65%;
     }
   }
 }

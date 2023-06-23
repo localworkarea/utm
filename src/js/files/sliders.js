@@ -72,7 +72,7 @@ function initSliders() {
 						clickable: true,
 						dynamicBullets: true,
 						renderBullet: function(index, className) {
-							var texts = ['СРВ-1 <span class="bullet-num">01</span>', 'СЗДК <span class="bullet-num">02</span>', 'МСУД <span class="bullet-num">03</span>', 'БРУЕП <span class="bullet-num">04</span>', 'КПА МП <span class="bullet-num">05</span>', 'СПС-ПГ <span class="bullet-num">06</span>'];
+							var texts = ['СПС-ПГ <span class="bullet-num">01</span>', 'СЗДК <span class="bullet-num">02</span>', 'МСУД <span class="bullet-num">03</span>', 'БРУЕП <span class="bullet-num">04</span>', 'КПА МП <span class="bullet-num">05</span>', 'СРВ-1 <span class="bullet-num">06</span>'];
 							return '<span class="' + className + '">' + texts[index] + '</span>';
 						}
 					},
@@ -83,7 +83,7 @@ function initSliders() {
 						el: '.main-slider__pagination',
 						clickable: true,
 						renderBullet: function(index, className) {
-							var texts = ['СРВ-1 <span class="bullet-num">01</span>', 'СЗДК <span class="bullet-num">02</span>', 'МСУД <span class="bullet-num">03</span>', 'БРУЕП <span class="bullet-num">04</span>', 'КПА МП <span class="bullet-num">05</span>', 'СПС-ПГ <span class="bullet-num">06</span>'];
+							var texts = ['СПС-ПГ <span class="bullet-num">01</span>', 'СЗДК <span class="bullet-num">02</span>', 'МСУД <span class="bullet-num">03</span>', 'БРУЕП <span class="bullet-num">04</span>', 'КПА МП <span class="bullet-num">05</span>', 'СРВ-1 <span class="bullet-num">06</span>'];
 							return '<span class="' + className + '">' + texts[index] + '</span>';
 						}
 					},
