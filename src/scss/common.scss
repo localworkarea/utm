@@ -257,6 +257,25 @@ summary {
   }
 }
 
+// === DECOR BLUE UNDERLINE =================================
+.text-decor-blue {
+  span {
+    display: inline-block;
+    position: relative;
+    &::before {
+      content:'';
+      position: absolute;
+      bottom: 0%;
+      left: 0;
+      width: 103%;
+      height: rem(8);
+      background-color: $blue-1E-F6;
+      opacity: 0.5;
+      z-index: -1;
+    }
+  }
+}
+
 // == PRODUCTS CARDS ========================================
 .card-products {
   @include adaptiveValue("width", 270, 253);
