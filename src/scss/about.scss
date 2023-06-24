@@ -214,7 +214,7 @@
     column-gap: rem(40);
   }
   @media (max-width:$mobile){
-     grid-template-columns: auto;
+     grid-template-columns: auto !important;
      grid-template-rows: auto; 
   }
   // .history-about__info

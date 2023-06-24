@@ -199,17 +199,17 @@ summary {
 
 .text-main-dark {
   font-weight: 400;
-  @include adaptiveValue("font-size", 18, 20);
+  @include adaptiveValue("font-size", 18, 20, 0, 1920, 480);
   line-height: calc(22/18);
   color: $gray-80;
   span {
     color: $white-ff;
-    font-weight: 600;
+    font-weight: 400;
   }
 }
 .text-main-light {
   font-weight: 400;
-  @include adaptiveValue("font-size", 18, 20);
+  @include adaptiveValue("font-size", 18, 20, 0, 1920, 480);
   line-height: calc(22/18);
   color: $white-ff;
   span {

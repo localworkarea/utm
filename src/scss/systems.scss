@@ -321,14 +321,16 @@
         opacity: 1;
       }
     }
-    &:hover {
-      .system__link_name {
-        color: $blue-56-FF;
-        text-decoration: underline;
-        text-underline-offset: rem(3);
-      }
-      .system__link_numb {
-        color: $blue-56-FF;
+    @media (any-hover: hover){
+      &:hover{
+        .system__link_name {
+          color: $blue-56-FF;
+          text-decoration: underline;
+          text-underline-offset: rem(3);
+        }
+        .system__link_numb {
+          color: $blue-56-FF;
+        }
       }
     }
   }
@@ -353,7 +355,7 @@
     // @include adaptiveValue("margin-bottom", 39, 30);
 	}
 }
-
+  // -- SYSTEM DESCREPTION -----------------------------------------------------
 .descrp-syst {
   position: relative;
   @include adaptiveValue("padding-left", 100, 0, 0, 1300, 992);
@@ -418,7 +420,7 @@
   // .descrp-syst__name-txt
   &__name-txt {
     color: $white-ff;
-    @include adaptiveValue("font-size", 24, 20);
+    @include adaptiveValue("font-size", 24, 20, 0, 1920, 480);
     font-weight: 700;
     line-height: calc(28/24);
     text-transform: uppercase;
@@ -507,7 +509,7 @@
     }
 	}
 }
-
+  // -- SYSTEM SPOLLER -----------------------------------------------------
 .system-spoller {
   &:not(:last-child) {
     @include adaptiveValue("margin-bottom", 90, 67);
@@ -687,7 +689,7 @@
   // .system-spoller__title
   &__title {
     color: $white-ff;
-    @include adaptiveValue("font-size", 30, 20);
+    @include adaptiveValue("font-size", 30, 20,0,1920,480);
     font-weight: 700;
     line-height: calc(28/30);
     text-transform: uppercase;
