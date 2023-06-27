@@ -239,26 +239,24 @@ export function spollers() {
 			}
 		}
 		function setSpollerAction(e) {
-			e.preventDefault();
 			const el = e.target;
-			if (el.closest('summary') && el.closest('[data-spollers]')) {
-				if (el.closest('[data-spollers]').classList.contains('_spoller-init')) {
-					const spollerTitle = el.closest('summary');
-					const spollerBlock = spollerTitle.closest('details');
-					const spollersBlock = spollerTitle.closest('[data-spollers]');
-					const oneSpoller = spollersBlock.hasAttribute('data-one-spoller');
-					const spollerSpeed = spollersBlock.dataset.spollersSpeed ? parseInt(spollersBlock.dataset.spollersSpeed) : 500;
-					if (!spollersBlock.querySelectorAll('._slide').length) {
-						if (oneSpoller && !spollerBlock.open) {
-							hideSpollersBody(spollersBlock);
-						}
-
-						!spollerBlock.open ? spollerBlock.open = true : setTimeout(() => { spollerBlock.open = false }, spollerSpeed);
-
-						spollerTitle.classList.toggle('_spoller-active');
-						_slideToggle(spollerTitle.nextElementSibling, spollerSpeed);
+			if (el.closest('summary') && el.closest('[data-spollers]').classList.contains('_spoller-init')) {
+				const spollerTitle = el.closest('summary');
+				const spollerBlock = spollerTitle.closest('details');
+				const spollersBlock = spollerTitle.closest('[data-spollers]');
+				const oneSpoller = spollersBlock.hasAttribute('data-one-spoller');
+				const spollerSpeed = spollersBlock.dataset.spollersSpeed ? parseInt(spollersBlock.dataset.spollersSpeed) : 500;
+				if (!spollersBlock.querySelectorAll('._slide').length) {
+					if (oneSpoller && !spollerBlock.open) {
+						hideSpollersBody(spollersBlock);
 					}
+
+					!spollerBlock.open ? spollerBlock.open = true : setTimeout(() => { spollerBlock.open = false }, spollerSpeed);
+
+					spollerTitle.classList.toggle('_spoller-active');
+					_slideToggle(spollerTitle.nextElementSibling, spollerSpeed);
 				}
+				e.preventDefault();
 			}
 			// Закриття при кліку поза спойлером
 			if (!el.closest('[data-spollers]')) {

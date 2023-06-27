@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+	@@include('html/_head.htm',{
+	"title":"ПКТБ - пристрій контролю температури букс"
+	})
+	<body>
+		<div class="wrapper page-light page-products product-devices product-pktb">
+			@@include('html/_header.htm',{})
+			<main class="page">
+				<section class="product">
+					<div class="backgr backgr_light">
+						<img src="@img/background/bg-light-big.png" alt="background">
+					</div>
+					<div class="product__container">
+						<div class="product__navigation nav-product">
+							<nav data-showmore="items" data-showmore-media="768,max" class="nav-product__nav">
+								<div class="nav-product__title">ПРОДУКЦІЯ:</div>
+								<div class="nav-product__content">
+									<ul data-showmore-content="1" class="nav-product__list">
+										<li class="nav-product__item nav-product__item_mob">
+											<a href="#" class="nav-product__link">
+												<span class="nav-product__link_name">ПКТБ - пристрій<br> контролю 
+													температури букс</span>
+											<span class="nav-product__link_numb">002</span>
+											</a>
+										</li>
+										@@include('html/_nav-product.htm',{})
+									</ul>
+									<button hidden data-showmore-button type="button" class="nav-product__more"><span>+</span></button>
+								</div>
+							</nav>
+						</div>
+						<div class="product__about about-product">
+							<div class="about-product__head">
+								<h1 class="about-product__title">Пристрій контролю<br> температури букс <span>— ПКТБ</span></h1>
+							</div>
+							<div class="about-product__gallery gallery-product">
+								<div data-gallery class="gallery-product__images">
+									<a href="@img/page-products/gallery/pktp-2.png" class="gallery-product__img-ibg">
+										<img src="@img/page-products/gallery/pktp-1.png" alt="ПРИСТРІЙ КОНТРОЛЮ
+										ТЕМПЕРАТУРИ БУКС">
+									</a>
+								</div>
+								
+							</div>
+							<div class="about-product__devices divices-product">
+								<div class="content-product__label devices-label label-txt label-txt_vertical">Опис.</div>
+								<div class="divices-product__block">
+									<div class="divices-product__titles">
+										<h2 class="divices-product__title">призначення<br> приладу</h2>
+									</div>
+									<div class="divices-product__content">
+										<p class="divices-product__txt">Пристрій контролю температури букс ПКТБ 
+											<span>призначений для обробки та передачі інформації 
+											про температуру</span> нагрівання букс та даних датчика 
+											рівня палива.
+											</p>
+									</div>
+								</div>
+								<div class="divices-product__block">
+									<div class="divices-product__titles">
+										<h2 class="divices-product__title">Технічні<br> характеристики</h2>
+									</div>
+									<div class="divices-product__content">
+										<p class="divices-product__txt">Пристрій забезпечує перетворення значення 
+											опору аналогових датчиків температури типу Pt1000 
+											в цифровий код. <span>Формує та видає дані</span> за інтерфейсом CAN на внутрішню інформаційну шину поїзду за протоколом CAN-open. Має на передній панелі 
+											світлову індикацію режиму роботи та аварійного стану, 
+											яка забезпечує індикацію станів датчиків: "норма", 
+											"перегрів", "обрив", "витік", "замикання".
+											</p>
+										<p class="divices-product__txt"><span>Напруга живлення:</span> Uвх = 24 В </p>
+										<p class="divices-product__txt">Блок встановлюється всередині кузова на DIN-рейці.
+											Можливі зміни конструкції та характеристик на вимогу замовника!</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</main>
+			@@include('html/_footer.htm',{})
+		</div>
+		@@include('html/_js.htm',{})
+	</body>
+</html>

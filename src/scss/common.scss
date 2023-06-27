@@ -15,6 +15,32 @@
 .page-system-05 {}
 .page-system-06 {}
 
+.product-projectors {}
+.product-devices {}
+.product-lamps {}
+
+.product-sls-9 {}
+.product-slr-36 {}
+.product-slr-18 {}
+.product-lwr-2 {}
+.product-lwr-1 {}
+.product-lw-160 {}
+.product-lr-120 {}
+.product-tpn {}
+.product-pktb {}
+.product-brn {}
+
+.link-sls-9 {}
+.link-slr-36 {}
+.link-slr-18 {}
+.link-lwr-2 {}
+.link-lwr-1 {}
+.link-lw-160 {}
+.link-lr-120 {}
+.link-tpn {}
+.link-pktb {}
+.link-brn {}
+
 
 // ================================================
 summary::-webkit-details-marker {
@@ -42,25 +68,9 @@ summary {
     object-fit: cover;
     z-index: 1;
   }
-  // &::before {
-  //   content:'';
-  //   position: absolute;
-  //   z-index: 2;
-  //   top: 0;
-  //   left: 0;
-  //   width: 100%;
-  //   height: 100%;
-  //   background-image: url("@img/background/LoopableNoise.gif");
-  //   background-position: top;
-  //   opacity: 0.08;
-  // }
   // .backgr_dark
   &_dark {
     background-color: $black-1A;
-    // &::before {
-    //   background-size: rem(350);
-    //   background-repeat: repeat;
-    // }
   }
   // .backgr_light
   &_light {
@@ -204,7 +214,7 @@ summary {
   color: $gray-80;
   span {
     color: $white-ff;
-    font-weight: 400;
+    // font-weight: 400;
   }
 }
 .text-main-light {
@@ -284,24 +294,27 @@ summary {
   border: rem(2) solid transparent;
 
   transition: all 0.3s ease;
-  &:hover {
-    background-color: $white-ff !important;
-    border: rem(2) solid $blue-1E-F6;
-    .card-products__title {
-      color: $blue-1E-F6 !important;
-    }
-    .card-products__img-ibg {
-      img {
-        transform: scale(1.05);
+  @media (any-hover: hover){
+    &:hover{
+      background-color: $white-ff !important;
+      border: rem(2) solid $blue-1E-F6;
+      .card-products__title {
+        color: $blue-1E-F6 !important;
       }
-    }
-    .card-products__bottom {
-      color: $blue-1E-F6 !important;
-      img {
-        filter: invert(49%) sepia(90%) saturate(2054%) hue-rotate(201deg) brightness(101%) contrast(101%);
+      .card-products__img-ibg {
+        img {
+          transform: scale(1.05);
+        }
+      }
+      .card-products__bottom {
+        color: $blue-1E-F6 !important;
+        img {
+          filter: invert(49%) sepia(90%) saturate(2054%) hue-rotate(201deg) brightness(101%) contrast(101%);
+        }
       }
     }
   }
+ 
   @media (max-width:$mobileSmall){
     padding: rem(23) rem(19) rem(17) rem(26);
   }

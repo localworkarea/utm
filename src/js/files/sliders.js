@@ -27,8 +27,7 @@ import "../../scss/base/swiper.scss";
 function initSliders() {
 	// Список слайдерів
 	// Перевіряємо, чи є слайдер на сторінці
-	if (document.querySelector('.main-slider__slider')) { // Вказуємо склас потрібного слайдера
-		// Створюємо слайдер
+	if (document.querySelector('.main-slider__slider')) {
 		new Swiper('.main-slider__slider', { // Вказуємо склас потрібного слайдера
 			// Підключаємо модулі слайдера
 			// для конкретного випадку
@@ -131,12 +130,8 @@ function initSliders() {
     }
   }
 
-
-	if (document.querySelector('.products-about__slider')) { // Вказуємо склас потрібного слайдера
-		// Створюємо слайдер
-		new Swiper('.products-about__slider', { // Вказуємо склас потрібного слайдера
-			// Підключаємо модулі слайдера
-			// для конкретного випадку
+	if (document.querySelector('.products-about__slider')) { 
+		new Swiper('.products-about__slider', { 
 			modules: [Navigation, Pagination, Autoplay],
 			observer: true,
 			observeParents: true,
@@ -187,6 +182,114 @@ function initSliders() {
 					slidesPerView: 2,
 					spaceBetween: 30,
 					speed: 1000,
+				},
+			},
+			// Події
+			on: {
+
+			}
+		});
+	}
+	if (document.querySelector('.devices-slider__slider')) { 
+		new Swiper('.devices-slider__slider', { 
+			modules: [Navigation, Pagination],
+			observer: true,
+			observeParents: true,
+			slidesPerView: "auto",
+			spaceBetween: 30,
+			speed: 800,
+			// loop: true,
+			pagination: {
+				el: '.devices-slider__pagination',
+				type: 'fraction',
+				renderFraction: function (currentClass, totalClass) {
+					return '<span class="' + currentClass + '"></span>' +
+									'<span class="' + totalClass + '"></span>';
+				}
+			},
+			navigation: {
+				prevEl: '.devices-slider__btn.swiper-button-prev',
+				nextEl: '.devices-slider__btn.swiper-button-next',
+			},
+			// Брейкпоінти
+			breakpoints: {
+				320: {
+					spaceBetween: 20,
+				},
+				481: {
+					spaceBetween: 30,
+				},
+			},
+			// Події
+			on: {
+
+			}
+		});
+	}
+	if (document.querySelector('.projectors-slider__slider')) { 
+		new Swiper('.projectors-slider__slider', { 
+			modules: [Navigation, Pagination],
+			observer: true,
+			observeParents: true,
+			slidesPerView: "auto",
+			spaceBetween: 30,
+			speed: 800,
+			// loop: true,
+			pagination: {
+				el: '.projectors-slider__pagination',
+				type: 'fraction',
+				renderFraction: function (currentClass, totalClass) {
+					return '<span class="' + currentClass + '"></span>' +
+									'<span class="' + totalClass + '"></span>';
+				}
+			},
+			navigation: {
+				prevEl: '.projectors-slider__btn.swiper-button-prev',
+				nextEl: '.projectors-slider__btn.swiper-button-next',
+			},
+			// Брейкпоінти
+			breakpoints: {
+				320: {
+					spaceBetween: 20,
+				},
+				481: {
+					spaceBetween: 30,
+				},
+			},
+			// Події
+			on: {
+
+			}
+		});
+	}
+	if (document.querySelector('.lamps-slider__slider')) { 
+		new Swiper('.lamps-slider__slider', { 
+			modules: [Navigation, Pagination],
+			observer: true,
+			observeParents: true,
+			slidesPerView: "auto",
+			spaceBetween: 30,
+			speed: 800,
+			// loop: true,
+			pagination: {
+				el: '.lamps-slider__pagination',
+				type: 'fraction',
+				renderFraction: function (currentClass, totalClass) {
+					return '<span class="' + currentClass + '"></span>' +
+									'<span class="' + totalClass + '"></span>';
+				}
+			},
+			navigation: {
+				prevEl: '.lamps-slider__btn.swiper-button-prev',
+				nextEl: '.lamps-slider__btn.swiper-button-next',
+			},
+			// Брейкпоінти
+			breakpoints: {
+				320: {
+					spaceBetween: 20,
+				},
+				481: {
+					spaceBetween: 30,
 				},
 			},
 			// Події
@@ -274,33 +377,33 @@ function initSliders() {
 	// }
 }
 // Скролл на базі слайдера (за класом swiper scroll для оболонки слайдера)
-function initSlidersScroll() {
-	let sliderScrollItems = document.querySelectorAll('.swiper_scroll');
-	if (sliderScrollItems.length > 0) {
-		for (let index = 0; index < sliderScrollItems.length; index++) {
-			const sliderScrollItem = sliderScrollItems[index];
-			const sliderScrollBar = sliderScrollItem.querySelector('.swiper-scrollbar');
-			const sliderScroll = new Swiper(sliderScrollItem, {
-				observer: true,
-				observeParents: true,
-				direction: 'vertical',
-				slidesPerView: 'auto',
-				freeMode: {
-					enabled: true,
-				},
-				scrollbar: {
-					el: sliderScrollBar,
-					draggable: true,
-					snapOnRelease: false
-				},
-				mousewheel: {
-					releaseOnEdges: true,
-				},
-			});
-			sliderScroll.scrollbar.updateSize();
-		}
-	}
-}
+// function initSlidersScroll() {
+// 	let sliderScrollItems = document.querySelectorAll('.swiper_scroll');
+// 	if (sliderScrollItems.length > 0) {
+// 		for (let index = 0; index < sliderScrollItems.length; index++) {
+// 			const sliderScrollItem = sliderScrollItems[index];
+// 			const sliderScrollBar = sliderScrollItem.querySelector('.swiper-scrollbar');
+// 			const sliderScroll = new Swiper(sliderScrollItem, {
+// 				observer: true,
+// 				observeParents: true,
+// 				direction: 'vertical',
+// 				slidesPerView: 'auto',
+// 				freeMode: {
+// 					enabled: true,
+// 				},
+// 				scrollbar: {
+// 					el: sliderScrollBar,
+// 					draggable: true,
+// 					snapOnRelease: false
+// 				},
+// 				mousewheel: {
+// 					releaseOnEdges: true,
+// 				},
+// 			});
+// 			sliderScroll.scrollbar.updateSize();
+// 		}
+// 	}
+// }
 
 window.addEventListener("load", function (e) {
 	// Запуск ініціалізації слайдерів

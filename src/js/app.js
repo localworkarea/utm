@@ -32,7 +32,7 @@ import * as flsFunctions from "./files/functions.js";
 /* (i) необхідно для коректного відображення webp із css */
 flsFunctions.isWebp();
 /* Додавання класу touch для HTML якщо браузер мобільний */
-flsFunctions.addTouchClass();
+// flsFunctions.addTouchClass();
 /* Додавання loaded для HTML після повного завантаження сторінки */
 flsFunctions.addLoadedClass();
 /* Модуль для роботи з меню (Бургер) */
@@ -167,7 +167,7 @@ import "./files/sliders.js";
 Документація плагіна: https://github.com/Grsmto/simplebar/tree/master/packages/simplebar
 Сніппет(HTML): 
 */
-import './files/scroll/simplebar.js';
+// import './files/scroll/simplebar.js';
 
 // Ліниве (відкладене) завантаження картинок
 // Документація по роботі у шаблоні: https://template.fls.guru/template-docs/modul-lenivaya-podgruzka-lazy-loading.html
@@ -214,7 +214,7 @@ flsScroll.digitsCounter();
 Документація плагіна: https://www.lightgalleryjs.com/docs/
 Сніппет(HTML):
 */
-// import "./files/gallery.js";
+import "./files/gallery.js";
 
 // ========================================================================================================================================================================================================================================================
 // Масонрі сітка ========================================================================================================================================================================================================================================================

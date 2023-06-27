@@ -3,14 +3,16 @@
 	width: 100%;
 	top: 0;
 	left: 0;
-	z-index: 10;
-	transition: all 0.3s ease;
+	z-index: 50;
+	transition: all 0.2s ease;
 	padding: rem(15) 0 rem(12);
-
+	@media (max-width:$mobileSmall){
+		padding: rem(7) 0;
+	}
 	&._header-scroll {
 		background-color: #2C2C2E;
 		@media (max-width: em(1100)){
-			background-color: rgba(44, 44, 46, 0.9);
+			background-color: rgba(44, 44, 46, 1);
 		}
 	}
 	&._open-menu-sub {
@@ -32,6 +34,7 @@
 		z-index: 2;
 		opacity: 0;
 		transition: all .3s ease;
+		pointer-events: none;
 	}
 	// .header__container
 	&__container {
@@ -55,12 +58,30 @@
 		.page-dark & {
 			display: block;
 		}
+		._header-scroll & {
+			display: block;
+		}
+		._open-menu-sub & {
+			display: block;
+		}
+		.menu-open & {
+			display: block;
+		}
 	}
 	// .header__logo-light
 	&__logo-light {
 		display: none;
 		.page-light & {
 			display: block;
+		}
+		._header-scroll & {
+			display: none;
+		}
+		._open-menu-sub & {
+			display: none;
+		}
+		.menu-open & {
+			display: none;
 		}
 	}
 	// .header__menu
@@ -85,6 +106,19 @@
 	// .header__tel
 	&__tel {
 		color: $white-ff;
+		transition: all .3s ease;
+		.page-light & {
+			color: $black-00;
+			@media (max-width: em(1100)){
+				color: $white-ff;
+			}
+		}
+		._header-scroll & {
+			color: $white-ff;
+		}
+		._open-menu-sub & {
+			color: $white-ff;
+		}
 		@media (max-width: em(1100)){
 			font-size: rem(24);
 			line-height: calc(29/24);
@@ -104,7 +138,20 @@
 			padding: rem(0) rem(16);
 			transition: all .3s ease;
 			color: $white-ff;
-	
+
+			transition: all .3s ease;
+			.page-light & {
+				color: $black-00;
+				@media (max-width: em(1100)){
+					color: $white-ff;
+				}
+			}
+			._header-scroll & {
+				color: $white-ff;
+			}
+			._open-menu-sub & {
+				color: $white-ff;
+			}
 			span {
 				display: block;
 				position: absolute;
@@ -129,6 +176,15 @@
 					height: rem(1);
 					background-color: $white-ff;
 					transition: all .3s ease;
+					.page-light & {
+						background-color: $black-00;
+					}
+					._header-scroll & {
+						background-color: $white-ff;
+					}
+					._open-menu-sub & {
+						background-color: $white-ff;
+					}
 				}
 				&::after {
 					transform: rotate(90deg);
@@ -241,13 +297,23 @@
 		font-weight: 400;
 		font-size: rem(16);
 		line-height: calc(19/16);
+		color: $gray-80;
 		transition: all .3s ease;
 		position: relative;
-		z-index: 2;
+		z-index: 10;
 
 		@media (any-hover: hover){
 			&:hover{
 				color: $white-EB;
+				.page-light & {
+					color: black;
+				}
+				._header-scroll & {
+					color: $white-ff;
+				}
+				._open-menu-sub & {
+					color: $white-ff;
+				}
 				&::before {
 					width: 100%;
 				}
@@ -276,8 +342,7 @@
 			padding-right: rem(16);
 
 			&._open {
-				color: $white-ff;
-			
+				color: $white-ff !important;
 				span {
 					transform: translateY(-50%) rotate(-45deg);
 					&::before,
@@ -615,6 +680,12 @@
 			width: 100%;
 			height: rem(2);
 			background-color: $white-ff;
+			.page-light & {
+				background-color: $black-00;
+			}
+			._header-scroll & {
+				background-color: $white-ff;
+			}
 		}
 		&::before {
 			top: 0;
@@ -668,15 +739,6 @@
 			}
 		}
 	}
-	// .highlight__prod
-	&__prod {
-		.page-products & {
-			color: $white-EB;
-			&::before {
-				width: 100%;
-			}
-		}
-	}
 	// .highlight__syst 
 	&__syst {
 		.page-systems & {
@@ -706,7 +768,29 @@
 	}
 }
 
-
+.page-products {
+	.highlight__prod {
+		color: $black-00;
+		@media (max-width: em(1100)){
+			color: $white-ff;
+		}
+			&::before {
+				width: 100%;
+			}
+	}
+	.header {
+		&._header-scroll {
+		.highlight__prod {
+				color: $white-ff;
+			}
+		}
+		&._open-menu-sub {
+			.highlight__prod {
+				color: $white-ff;
+			}
+		}
+	}
+}
 
 
 
