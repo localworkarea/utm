@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+	@@include('html/_head.htm',{
+	"title":"Сертифікати Укртрансмаш"
+	})
+	<body>
+		<div class="wrapper page-light page-sertificate">
+			@@include('html/_header.htm',{})
+			<main class="page">
+				<div class="page-sertificate__text-backgr text-backgr text-backgr_light">
+					<span data-prlx-cx="300" data-prlx-mouse data-prlx-dxr data-prlx-dxy class="text-backgr__txt">УКР</span>
+					<span data-prlx-cx="300" data-prlx-mouse class="text-backgr__txt">ТРАНС</span>
+					<span data-prlx-cx="300" data-prlx-mouse data-prlx-dxr data-prlx-dxy class="text-backgr__txt">МАШ</span>
+				</div>
+				<section class="sertificate">
+					<div class="backgr backgr_light">
+						<img src="@img/background/bg-light-big.png" alt="background">
+					</div>
+					<div class="sertificate__container">
+						<h1 class="sertificate__title">Сертифікати</h1>
+						<div class="sertificate__items item-sertificate">
+							<article class="item-sertificate__item">
+								<h2 class="item-sertificate__title">Сертифікат на систему управління якістю</h2>
+								<div data-gallery class="item-sertificate__images">
+									<a href="@img/page-sertificate/1-2.png" class="item-sertificate__img-ibg">
+										<img src="@img/page-sertificate/1-1.jpg" alt="Сертифікат на систему управління якістю">
+									</a>
+								</div>
+								<img class="item-sertificate__arrow-img" src="@img/icons/arrow-more-slider.svg" alt="arrow">
+							</article>
+							<article class="item-sertificate__item item-sertificate__item_02">
+								<img class="item-sertificate__arrow-img" src="@img/icons/arrow-more-slider.svg" alt="arrow">
+								<div data-gallery class="item-sertificate__images">
+									<a href="@img/page-sertificate/2-2.png" class="item-sertificate__img-ibg">
+										<img src="@img/page-sertificate/2-1.jpg" alt="Сертифікат відповідності">
+									</a>
+								</div>
+								<h2 class="item-sertificate__title">Сертифікат<br> відповідності</h2>
+							</article>
+							<article class="item-sertificate__item">
+								<h2 class="item-sertificate__title">certifsicate for quality management system</h2>
+								<div data-gallery class="item-sertificate__images">
+									<a href="@img/page-sertificate/3-2.png" class="item-sertificate__img-ibg">
+										<img src="@img/page-sertificate/3-1.jpg" alt="Certifsicate for Quality Management System">
+									</a>
+								</div>
+								<img class="item-sertificate__arrow-img" src="@img/icons/arrow-more-slider.svg" alt="arrow">
+							</article>
+						</div>
+					</div>
+				</section>
+				<section class="sertificate-about">
+					<div class="backgr backgr_light">
+						<img src="@img/background/bg-light-big.png" alt="background">
+					</div>
+					<div class="sertificate-about__container">
+						@@include('html/_about-block.htm',{})
+					</div>
+				</section>
+			</main>
+			@@include('html/_footer.htm',{})
+		</div>
+		@@include('html/_js.htm',{})
+	</body>
+</html>

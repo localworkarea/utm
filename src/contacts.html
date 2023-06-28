@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+	@@include('html/_head.htm',{
+	"title":"Контакти Укртрансмаш"
+	})
+	<body>
+		<div class="wrapper page-light page-contacts">
+			@@include('html/_header.htm',{})
+			<main class="page">
+				<div class="page-contacts__text-backgr text-backgr text-backgr_light">
+					<span data-prlx-cx="300" data-prlx-mouse data-prlx-dxr data-prlx-dxy class="text-backgr__txt">УКР</span>
+					<span data-prlx-cx="300" data-prlx-mouse class="text-backgr__txt">ТРАНС</span>
+					<span data-prlx-cx="300" data-prlx-mouse data-prlx-dxr data-prlx-dxy class="text-backgr__txt">МАШ</span>
+				</div>
+				<section class="contacts">
+					<div class="backgr backgr_light">
+						<img src="@img/background/bg-light.png" alt="background">
+					</div>
+					<div class="contacts__container">
+						<div class="contacts__head">
+							<h1 class="contacts__title">Контакти</h1>
+							<ul class="contacts__person person">
+								<li class="person__item">
+									<span class="person__num">01.</span>
+									<div class="person__img-ibg">
+										<img src="@img/page-contacts/1.png" alt="Калашник Олег Анатолійович">
+									</div>
+									<div class="person__about">
+										<p class="person__name">Калашник<br> Олег Анатолійович</p>
+										<p class="person__position">Генеральний<br>	директор</p>
+										<address class="person__address">
+											<a href="tel:+380506286393" class="person__phone">+38 (050) 628-63-93</a>
+											<a href="mailto:kalashnyk@ukrtransmash.com.ua" class="person__email">kalashnyk@ukrtransmash.com.ua</a>
+										</address>
+									</div>
+								</li>
+								<li class="person__item">
+									<span class="person__num">02.</span>
+									<div class="person__img-ibg">
+										<img src="@img/page-contacts/2.png" alt="Шилін Сергій Олександрович">
+									</div>
+									<div class="person__about">
+										<p class="person__name">Шилін<br>	Сергій Олександрович</p>
+										<p class="person__position">Технічний<br>	директор</p>
+										<address class="person__address">
+											<a href="tel:+380508554017" class="person__phone">+38 (050) 855-40-17</a>
+											<a href="mailto:shilin@ukrtransmash.com.ua" class="person__email">shilin@ukrtransmash.com.ua</a>
+										</address>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+				<section class="contacts-map">
+					<div class="backgr backgr_light">
+						<img src="@img/background/bg-light.png" alt="background">
+					</div>
+					<div class="contacts-map__container">
+						<div class="contacts-map__map">
+							<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2595.3190723035464!2d32.10560871235781!3d49.42178147129495!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d14baaa7a8d491%3A0x3f6b274f13298692!2sDobrovol&#39;s&#39;koho%20St%2C%201%2C%20Cherkasy%2C%20Cherkas&#39;ka%20oblast%2C%2018000!5e0!3m2!1sen!2sua!4v1687955484925!5m2!1sen!2sua" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+						</div>
+						<div class="contacts-map__address">
+							<div class="contacts-map__address-body">
+								<h2 class="contacts-map__title">Офіс</h2>
+								<address class="contacts-map__txt">
+									Україна, м. Черкаси, <br>вул. Добровольского, 1
+								</address>
+							</div>
+						</div>
+					</div>
+				</section>
+			</main>
+			@@include('html/_footer.htm',{})
+		</div>
+		@@include('html/_js.htm',{})
+	</body>
+</html>
