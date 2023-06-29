@@ -1,6 +1,8 @@
 about.html
 products.html
 systems.html
+sertificate.html
+contacts.html
 
 ----- Продукция ----------------
 projector-sls-9.html
@@ -16,8 +18,13 @@ device-brn.html
 
 ----- Системы ----------------
 system-szdk.html
+
 system-srv.html
+
 system-sps.html
+
 system-msud.html
+
 system-kpa.html
+
 system-bruep.html

@@ -6233,22 +6233,6 @@ PERFORMANCE OF THIS SOFTWARE.
     }
     const da = new DynamicAdapt("max");
     da.init();
-    const headerLanguageBtn = document.querySelector(".header__language");
-    const headerLngs = document.querySelector(".header__lngs");
-    if (headerLanguageBtn) {
-        function toggleHeaderLngs() {
-            headerLngs.classList.toggle("_open");
-        }
-        function removeHeaderLngs() {
-            headerLngs.classList.remove("_open");
-        }
-        headerLanguageBtn.addEventListener("click", (function(event) {
-            if (event.target === headerLanguageBtn) toggleHeaderLngs(); else removeHeaderLngs();
-        }));
-        document.addEventListener("click", (function(event) {
-            if (!event.target.closest(".header__lngs")) removeHeaderLngs();
-        }));
-    }
     const menuLinkBtns = document.querySelectorAll(".menu__link_btn");
     if (menuLinkBtns) {
         const submenuLinks = document.querySelectorAll(".product-submenu__link");

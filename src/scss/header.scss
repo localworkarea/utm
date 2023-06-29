@@ -4,16 +4,15 @@
 	top: 0;
 	left: 0;
 	z-index: 50;
-	transition: all 0.2s ease;
+	transition: all 0.2s ease-in-out;
 	padding: rem(15) 0 rem(12);
 	@media (max-width:$mobileSmall){
-		padding: rem(7) 0;
+		padding: rem(9) 0 rem(7) 0;
 	}
 	&._header-scroll {
-		background-color: #2C2C2E;
-		@media (max-width: em(1100)){
-			background-color: rgba(44, 44, 46, 1);
-		}
+		// background-color: #2C2C2E;
+		background-color: #1A1A1A;
+		box-shadow: 0px 0px 1px 1px rgba(123, 148, 157, 0.50);
 	}
 	&._open-menu-sub {
 		&::before {
@@ -48,7 +47,7 @@
 		position: relative;
 		z-index: 2;
 		img {
-			@include adaptiveValue("width", 266, 187);
+			@include adaptiveValue("width", 266, 187,0,1440,480);
 			height: auto;
 		}
 	}
@@ -96,6 +95,7 @@
 		align-items: center;
 		justify-content: space-between;
 		@include adaptiveValue("column-gap", 58, 10, 0, 1920, 1100);
+		
 		@media (max-width: em(1100)){
 			  align-self: flex-end;
 				align-items: flex-end;
@@ -127,6 +127,22 @@
 	// .header__lngs
 	&__lngs {
 		position: relative;
+		&:hover {
+			@media (min-width:em(1101)){
+				.header__language {
+					span {
+						transform: translateY(-50%) rotate(-45deg);
+					}
+				}
+				.header__language-link {
+					opacity: 1;
+					pointer-events: all;
+				}
+			}
+		}
+		@media (max-width: em(1100)){
+			  display: flex;
+		}
 	}
 	// .header__language
 	&__language {
@@ -160,12 +176,10 @@
 				right: 0;
 				width: rem(11);
 				height: rem(11);
-
-				._open & {
-					transform: translateY(-50%) rotate(-45deg);
-				}
-	
 				transition: all .3s ease;
+				// ._open & {
+				// 	transform: translateY(-50%) rotate(-45deg);
+				// }
 				&::before,
 				&::after {
 					content: '';
@@ -201,33 +215,57 @@
 	}
 	// .header__language-link
 	&__language-link {
-		._open & {
-			opacity: 1;
-			pointer-events: all;
-		}
+			// ._open & {
+			// 	opacity: 1;
+			// 	pointer-events: all;
+			// }
+			// top: 150%;
+
 		opacity: 0;
 		pointer-events: none;
+
 		position: absolute;
-		top: 150%;
+		top: 0;
 		left: 0;
-		padding: rem(16);
-		border: rem(1) solid white;
-		background-color: #2C2C2E;
+		padding-top: rem(30);
 		transition: all .3s ease;
-			&:hover {
-				color: $white-ff;
+		span {
+			display: block;
+			padding: rem(16);
+			border: rem(1) solid white;
+			background-color: #2C2C2E;
+			transition: all .3s ease;
+			@media (min-width:em(1101)){
+				  .page-light & {
+						background-color: rgba(44, 44, 46, 0.32);
+						color: $white-ff;
+					}
+					._header-scroll & {
+						background-color: #2C2C2E;
+						color: inherit
+					}
 			}
+
+			@media (max-width: em(1100)){
+				padding: 0;
+				font-size: rem(24);
+				line-height: calc(29/24);
+				border: unset;
+				background-color: unset;
+			}
+
+			&:hover {
+					color: $white-ff;
+			}
+		}
 		
 		@media (max-width: em(1100)){
 			opacity: 1;
 			pointer-events: all;
 			position: relative;
 
-			padding: 0;
-			font-size: rem(24);
-			line-height: calc(29/24);
-			border: unset;
-			background-color: unset;
+			opacity: 0.5;
+			padding-top: unset;
 			top: unset;
 		}
 	}
