@@ -6233,42 +6233,53 @@ PERFORMANCE OF THIS SOFTWARE.
     }
     const da = new DynamicAdapt("max");
     da.init();
-    const menuLinkBtns = document.querySelectorAll(".menu__link_btn");
-    if (menuLinkBtns) {
-        const submenuLinks = document.querySelectorAll(".product-submenu__link");
-        menuLinkBtns.forEach((btn => {
-            btn.addEventListener("click", (() => {
-                const isOpen = btn.classList.contains("_open");
-                menuLinkBtns.forEach((btn => {
-                    btn.classList.remove("_open");
-                    btn.parentNode.classList.remove("_open-submenu");
-                }));
-                if (!isOpen) {
-                    btn.classList.add("_open");
-                    btn.parentNode.classList.add("_open-submenu");
-                    document.querySelector(".header").classList.add("_open-menu-sub");
-                } else document.querySelector(".header").classList.remove("_open-menu-sub");
-            }));
-        }));
-        submenuLinks.forEach((link => {
-            link.addEventListener("click", (event => {
-                event.stopPropagation();
-            }));
-        }));
-        document.addEventListener("click", (event => {
-            const target = event.target;
-            const header = document.querySelector(".header");
-            const isMenuLinkBtn = target.classList.contains("menu__link_btn") || target.closest(".menu__link_btn");
-            const isHeader = target.classList.contains("header") || target.closest(".header");
-            if (!isMenuLinkBtn && !isHeader) {
-                menuLinkBtns.forEach((btn => {
-                    btn.classList.remove("_open");
-                    btn.parentNode.classList.remove("_open-submenu");
-                }));
-                header.classList.remove("_open-menu-sub");
-            }
-        }));
+    const menuItems = document.querySelectorAll(".menu__item-submenu");
+    const header = document.querySelector(".header");
+    const menuLinkBtns = Array.from(document.querySelectorAll(".menu__link_btn"));
+    document.querySelector(".menu__sublist");
+    function addClass(element, className) {
+        if (!element.classList.contains(className)) element.classList.add(className);
     }
+    function removeClass(element, className) {
+        if (element.classList.contains(className)) element.classList.remove(className);
+    }
+    function handleHover() {
+        if (window.innerWidth > 1101) {
+            addClass(header, "_open-menu-sub");
+            addClass(this, "_open");
+        }
+    }
+    function handleLeave() {
+        if (window.innerWidth > 1101) {
+            removeClass(header, "_open-menu-sub");
+            removeClass(this, "_open");
+        }
+    }
+    function handleClick(event) {
+        if (window.innerWidth < 1100) {
+            event.preventDefault();
+            const parentItem = event.currentTarget.closest(".menu__item-submenu");
+            if (parentItem) {
+                if (!event.target.closest(".product-tab-submenu")) menuItems.forEach((item => {
+                    if (item !== parentItem) removeClass(item, "_open-submenu");
+                }));
+                parentItem.classList.toggle("_open-submenu");
+            }
+        }
+    }
+    menuItems.forEach((item => {
+        item.addEventListener("mouseenter", handleHover);
+        item.addEventListener("mouseleave", handleLeave);
+    }));
+    menuLinkBtns.forEach((menuLinkBtn => {
+        menuLinkBtn.addEventListener("click", handleClick);
+    }));
+    const menuIcon = document.querySelector(".menu__icon");
+    if (menuIcon) menuIcon.addEventListener("click", (() => {
+        menuItems.forEach((item => {
+            removeClass(item, "_open-submenu");
+        }));
+    }));
     window["FLS"] = true;
     isWebp();
     addLoadedClass();

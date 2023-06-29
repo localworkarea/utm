@@ -31,65 +31,79 @@ import { flsModules } from "./modules.js";
 //     }
 //   });
 // }
+// Получаем необходимые элементы
 
+// Получаем необходимые элементы
+const menuItems = document.querySelectorAll('.menu__item-submenu');
+const header = document.querySelector('.header');
+const menuLinkBtns = Array.from(document.querySelectorAll('.menu__link_btn'));
+const menuSublist = document.querySelector('.menu__sublist');
 
+// Функция для добавления класса
+function addClass(element, className) {
+  if (!element.classList.contains(className)) {
+    element.classList.add(className);
+  }
+}
 
-// Получаем все элементы menu__link_btn
-const menuLinkBtns = document.querySelectorAll('.menu__link_btn');
+// Функция для удаления класса
+function removeClass(element, className) {
+  if (element.classList.contains(className)) {
+    element.classList.remove(className);
+  }
+}
 
-if (menuLinkBtns) {
-  // Получаем все внутренние ссылки product-submenu__link
-  const submenuLinks = document.querySelectorAll('.product-submenu__link');
+// Обработчик события при ховере на элементы menu__item-submenu (разрешение > 1101px)
+function handleHover() {
+  if (window.innerWidth > 1101) {
+    addClass(header, '_open-menu-sub');
+    addClass(this, '_open');
+  }
+}
 
-  // Обработчик события для каждого элемента menu__link_btn
-  menuLinkBtns.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const isOpen = btn.classList.contains('_open');
+// Обработчик события при уходе с элементов menu__item-submenu (разрешение > 1101px)
+function handleLeave() {
+  if (window.innerWidth > 1101) {
+    removeClass(header, '_open-menu-sub');
+    removeClass(this, '_open');
+  }
+}
 
-      // Удаление классов _open у всех кнопок и родительских элементов
-      menuLinkBtns.forEach((btn) => {
-        btn.classList.remove('_open');
-        btn.parentNode.classList.remove('_open-submenu');
-      });
-
-      // Добавление классов _open текущей кнопке и родительскому элементу
-      if (!isOpen) {
-        btn.classList.add('_open');
-        btn.parentNode.classList.add('_open-submenu');
-        document.querySelector('.header').classList.add('_open-menu-sub'); // Добавляем класс _open-menu-sub к .header
-      } else {
-        document.querySelector('.header').classList.remove('_open-menu-sub'); // Удаляем класс _open-menu-sub из .header
+// Обработчик события при клике на элементы menu__link_btn (разрешение < 1100)
+function handleClick(event) {
+  if (window.innerWidth < 1100) {
+    event.preventDefault(); // Отменяем действие ссылки
+    const parentItem = event.currentTarget.closest('.menu__item-submenu');
+    if (parentItem) {
+      if (!event.target.closest('.product-tab-submenu')) {
+        menuItems.forEach((item) => {
+          if (item !== parentItem) {
+            removeClass(item, '_open-submenu');
+          }
+        });
       }
-    });
-  });
-
-  // Обработчик события для каждой ссылки product-submenu__link
-  submenuLinks.forEach((link) => {
-    link.addEventListener('click', (event) => {
-      event.stopPropagation(); // Остановка всплытия события, чтобы не срабатывал клик на menu__link_btn
-      // Добавьте свой код для обработки действий при клике на внутреннюю ссылку
-      // Например, перенаправление пользователя на другую страницу
-    });
-  });
-
-  // Обработчик события для клика на документе
-  document.addEventListener('click', (event) => {
-    const target = event.target;
-    const header = document.querySelector('.header');
-
-    // Проверяем, является ли кликнутый элемент .menu__link_btn или его родительским элементом
-    const isMenuLinkBtn = target.classList.contains('menu__link_btn') || target.closest('.menu__link_btn');
-
-    // Проверяем, является ли кликнутый элемент .header или его потомком
-    const isHeader = target.classList.contains('header') || target.closest('.header');
-
-    // Удаляем классы _open и _open-submenu, если кликнули не на .menu__link_btn или .header
-    if (!isMenuLinkBtn && !isHeader) {
-      menuLinkBtns.forEach((btn) => {
-        btn.classList.remove('_open');
-        btn.parentNode.classList.remove('_open-submenu');
-      });
-      header.classList.remove('_open-menu-sub');
+      parentItem.classList.toggle('_open-submenu');
     }
+  }
+}
+
+// Добавляем обработчики событий к элементам
+menuItems.forEach((item) => {
+  item.addEventListener('mouseenter', handleHover);
+  item.addEventListener('mouseleave', handleLeave);
+});
+
+menuLinkBtns.forEach((menuLinkBtn) => {
+  menuLinkBtn.addEventListener('click', handleClick);
+});
+
+// Обработчик события при клике на кнопку menu__icon
+const menuIcon = document.querySelector('.menu__icon');
+if (menuIcon) {
+  menuIcon.addEventListener('click', () => {
+    menuItems.forEach((item) => {
+      removeClass(item, '_open-submenu');
+    });
   });
 }
+

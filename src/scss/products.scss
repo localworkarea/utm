@@ -865,6 +865,11 @@
 		&__txt-p {
       display: grid;
       grid-template-columns: 60% auto;
+      .spollers-product__txt {
+        &:nth-child(2) {
+          white-space: nowrap;
+        }
+      }
       &:not(:last-child) {
         margin-bottom: rem(5);
       }
