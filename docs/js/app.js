@@ -4131,7 +4131,7 @@
             modules: [ Navigation, Pagination, Autoplay ],
             observer: true,
             observeParents: true,
-            slidesPerView: 2,
+            slidesPerView: "auto",
             spaceBetween: 30,
             speed: 1500,
             loop: true,
@@ -4149,30 +4149,6 @@
             navigation: {
                 prevEl: ".products-about__btn.swiper-button-prev",
                 nextEl: ".products-about__btn.swiper-button-next"
-            },
-            breakpoints: {
-                320: {
-                    slidesPerView: "auto",
-                    spaceBetween: 20,
-                    speed: 800
-                },
-                530: {
-                    slidesPerView: 2,
-                    spaceBetween: 20
-                },
-                680: {
-                    slidesPerView: 2.5,
-                    spaceBetween: 20
-                },
-                769: {
-                    slidesPerView: "auto",
-                    spaceBetween: 20
-                },
-                1201: {
-                    slidesPerView: 2,
-                    spaceBetween: 30,
-                    speed: 1e3
-                }
             },
             on: {}
         });

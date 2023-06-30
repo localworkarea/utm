@@ -135,7 +135,7 @@ function initSliders() {
 			modules: [Navigation, Pagination, Autoplay],
 			observer: true,
 			observeParents: true,
-			slidesPerView: 2,
+			slidesPerView: "auto",
 			spaceBetween: 30,
 			speed: 1500,
 			loop: true,
@@ -156,34 +156,34 @@ function initSliders() {
 				nextEl: '.products-about__btn.swiper-button-next',
 			},
 			// Брейкпоінти
-			breakpoints: {
-				320: {
-					slidesPerView: "auto",
-					spaceBetween: 20,
-					speed: 800,
-				},
-				// 400: {
-				// 	slidesPerView: 1.5,
-				// 	spaceBetween: 20,
-				// },
-				530: {
-					slidesPerView: 2,
-					spaceBetween: 20,
-				},
-				680: {
-					slidesPerView: 2.5,
-					spaceBetween: 20,
-				},
-				769: {
-					slidesPerView: "auto",
-					spaceBetween: 20,
-				},
-				1201: {
-					slidesPerView: 2,
-					spaceBetween: 30,
-					speed: 1000,
-				},
-			},
+			// breakpoints: {
+			// 	320: {
+			// 		slidesPerView: "auto",
+			// 		spaceBetween: 20,
+			// 		speed: 800,
+			// 	},
+			// 	// 400: {
+			// 	// 	slidesPerView: 1.5,
+			// 	// 	spaceBetween: 20,
+			// 	// },
+			// 	530: {
+			// 		slidesPerView: 2,
+			// 		spaceBetween: 20,
+			// 	},
+			// 	680: {
+			// 		slidesPerView: 2.5,
+			// 		spaceBetween: 20,
+			// 	},
+			// 	769: {
+			// 		slidesPerView: "auto",
+			// 		spaceBetween: 20,
+			// 	},
+			// 	1201: {
+			// 		slidesPerView: 2,
+			// 		spaceBetween: 30,
+			// 		speed: 1000,
+			// 	},
+			// },
 			// Події
 			on: {
 

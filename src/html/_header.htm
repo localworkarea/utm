@@ -11,7 +11,7 @@
 					<li class="menu__item"><a href="about.html" class="menu__link highlight__about">Про нас</a></li>
 					<li class="menu__item menu__item-submenu">
 						<a href="products.html" class="menu__link menu__link_btn highlight__prod">Продукція<span></span></a>
-						<div class="menu__sublist">
+						<div class="menu__sublist menu__sublist-product">
 							<ul class="menu__sublist-list product-submenu">
 								<li class="product-submenu__item">
 									<span class="product-submenu__lable">Прилади</span>
@@ -32,6 +32,10 @@
 									<a data-da=".product-tab-03,1100,2" href="lamp-lwr-1.html"  class="product-submenu__link">Подвійний LWR-1</a>
 									<a data-da=".product-tab-03,1100,3" href="lamp-lwr-2.html"  class="product-submenu__link">Двокольоровий LWR-2</a>
 								</li>
+								<a href="products.html" class="view-all-link">
+									<span>Дивитись всю продукцію</span>
+									<img src="@img/icons/arrow-more-slider.svg" alt="arrow">
+								</a>
 							</ul>
 						</div>
 						<div data-tabs class="product-tab-submenu">
@@ -59,16 +63,12 @@
 					</li>
 					<li class="menu__item menu__item-submenu">
 						<a href="systems.html" class="menu__link menu__link_btn highlight__syst">Системи<span></span></a>
-						<div class="menu__sublist">
-							<a href="products.html" class="view-all-link">
-								Дивитись всі системи
-								<img src="@img/icons/arrow-more-slider.svg" alt="arrow">
-							</a>
+						<div class="menu__sublist menu__sublist-systems">
 							<ul class="menu__sublist-list systems-submenu">
 								<li class="systems-submenu__item">
-									<a href="system-srv.html" class="systems-submenu__link">
-										<span class="systems-submenu__lable">СРВ-1</span>
-										<span class="systems-submenu__name">Комплексна система радіозвʼязку та відеоспостереження</span>
+									<a href="system-sps.html" class="systems-submenu__link">
+										<span class="systems-submenu__lable">СПС-ПГ</span>
+										<span class="systems-submenu__name">Системи пожежної сигналізації та пожежогасіння</span>
 									</a>
 								</li>
 								<li class="systems-submenu__item">
@@ -96,11 +96,15 @@
 									</a>
 								</li>
 								<li class="systems-submenu__item">
-									<a href="system-sps.html" class="systems-submenu__link">
-										<span class="systems-submenu__lable">СПС-ПГ</span>
-										<span class="systems-submenu__name">Системи пожежної сигналізації та пожежогасіння</span>
+									<a href="system-srv.html" class="systems-submenu__link">
+										<span class="systems-submenu__lable">СРВ-1</span>
+										<span class="systems-submenu__name">Комплексна система радіозвʼязку та відеоспостереження</span>
 									</a>
 								</li>
+								<a data-da=".menu__sublist-systems,1100,0" href="products.html" class="view-all-link">
+									Дивитись всі системи
+									<img src="@img/icons/arrow-more-slider.svg" alt="arrow">
+								</a>
 							</ul>
 						</div>
 					</li>

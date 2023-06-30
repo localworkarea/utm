@@ -11,7 +11,7 @@
 
 .contacts {
   position: relative;
-  @include adaptiveValue("padding-top", 165, 100);
+  @include adaptiveValue("padding-top", 165, 125);
   @include adaptiveValue("padding-bottom", 76, 57);
   // .contacts__container
   &__container {

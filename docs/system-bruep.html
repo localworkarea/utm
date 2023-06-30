@@ -10,7 +10,7 @@
 			opacity: 0;
 		}
 	</style>
-	<link rel="stylesheet" href="css/style.min.css?_v=20230629185350">
+	<link rel="stylesheet" href="css/style.min.css?_v=20230630150401">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,7 +31,7 @@
 							<li class="menu__item"><a href="about.html" class="menu__link highlight__about">Про нас</a></li>
 							<li class="menu__item menu__item-submenu">
 								<a href="products.html" class="menu__link menu__link_btn highlight__prod">Продукція<span></span></a>
-								<div class="menu__sublist">
+								<div class="menu__sublist menu__sublist-product">
 									<ul class="menu__sublist-list product-submenu">
 										<li class="product-submenu__item">
 											<span class="product-submenu__lable">Прилади</span>
@@ -52,6 +52,10 @@
 											<a data-da=".product-tab-03,1100,2" href="lamp-lwr-1.html" class="product-submenu__link">Подвійний LWR-1</a>
 											<a data-da=".product-tab-03,1100,3" href="lamp-lwr-2.html" class="product-submenu__link">Двокольоровий LWR-2</a>
 										</li>
+										<a href="products.html" class="view-all-link">
+											<span>Дивитись всю продукцію</span>
+											<img src="img/icons/arrow-more-slider.svg" alt="arrow">
+										</a>
 									</ul>
 								</div>
 								<div data-tabs class="product-tab-submenu">
@@ -79,16 +83,12 @@
 							</li>
 							<li class="menu__item menu__item-submenu">
 								<a href="systems.html" class="menu__link menu__link_btn highlight__syst">Системи<span></span></a>
-								<div class="menu__sublist">
-									<a href="products.html" class="view-all-link">
-										Дивитись всі системи
-										<img src="img/icons/arrow-more-slider.svg" alt="arrow">
-									</a>
+								<div class="menu__sublist menu__sublist-systems">
 									<ul class="menu__sublist-list systems-submenu">
 										<li class="systems-submenu__item">
-											<a href="system-srv.html" class="systems-submenu__link">
-												<span class="systems-submenu__lable">СРВ-1</span>
-												<span class="systems-submenu__name">Комплексна система радіозвʼязку та відеоспостереження</span>
+											<a href="system-sps.html" class="systems-submenu__link">
+												<span class="systems-submenu__lable">СПС-ПГ</span>
+												<span class="systems-submenu__name">Системи пожежної сигналізації та пожежогасіння</span>
 											</a>
 										</li>
 										<li class="systems-submenu__item">
@@ -116,11 +116,15 @@
 											</a>
 										</li>
 										<li class="systems-submenu__item">
-											<a href="system-sps.html" class="systems-submenu__link">
-												<span class="systems-submenu__lable">СПС-ПГ</span>
-												<span class="systems-submenu__name">Системи пожежної сигналізації та пожежогасіння</span>
+											<a href="system-srv.html" class="systems-submenu__link">
+												<span class="systems-submenu__lable">СРВ-1</span>
+												<span class="systems-submenu__name">Комплексна система радіозвʼязку та відеоспостереження</span>
 											</a>
 										</li>
+										<a data-da=".menu__sublist-systems,1100,0" href="products.html" class="view-all-link">
+											Дивитись всі системи
+											<img src="img/icons/arrow-more-slider.svg" alt="arrow">
+										</a>
 									</ul>
 								</div>
 							</li>
@@ -288,12 +292,12 @@
 					</div>
 					<ul class="footer__system footer-syst">
 						<span class="footer-syst__lable">Системи</span>
-						<li data-da=".footer-syst__mob-wrap,450" class="footer-syst__item"><a href="system-srv.html" class="footer-syst__link">СРВ-1</a></li>
+						<li data-da=".footer-syst__mob-wrap,450" class="footer-syst__item"><a href="system-sps.html" class="footer-syst__link">СПС-ПГ</a></li>
 						<li data-da=".footer-syst__mob-wrap,450" class="footer-syst__item"><a href="system-bruep.html" class="footer-syst__link">БРУЕП</a></li>
 						<li data-da=".footer-syst__mob-wrap,450" class="footer-syst__item"><a href="system-msud.html" class="footer-syst__link">МСУД</a></li>
 						<li data-da=".footer-syst__mob-wrap,450" class="footer-syst__item"><a href="system-szdk.html" class="footer-syst__link">СЗДК</a></li>
 						<li data-da=".footer-syst__mob-wrap,450" class="footer-syst__item"><a href="system-kpa.html" class="footer-syst__link">КПА МП</a></li>
-						<li data-da=".footer-syst__mob-wrap,450" class="footer-syst__item"><a href="system-sps.html" class="footer-syst__link">СПС-ПГ</a></li>
+						<li data-da=".footer-syst__mob-wrap,450" class="footer-syst__item"><a href="system-srv.html" class="footer-syst__link">СРВ-1</a></li>
 						<div class="footer-syst__mob-wrap"></div>
 					</ul>
 					<div class="footer__other">
@@ -316,7 +320,7 @@
 			</div>
 		</footer>
 	</div>
-	<script src="js/app.min.js?_v=20230629185350"></script>
+	<script src="js/app.min.js?_v=20230630150401"></script>
 </body>
 
 </html>

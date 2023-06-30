@@ -395,6 +395,7 @@
   // .products-about__main
   &__main {
     position: relative;
+    z-index: 2;
     &::before,
     &::after {
       content: '';
@@ -439,37 +440,21 @@
     @include adaptiveValue("padding-top", 71, 54, 0, 1920, 1201);
     @include adaptiveValue("padding-top", 50, 0, 3, 1201, 1200);
     @include adaptiveValue("margin-top", 55, 54, 3, 1200, 360);
-    overflow: initial !important;
+    padding-bottom: rem(50);
+    @media (min-width:em(1201)){
+      width: rem(880);
+    }
     @media (max-width: em(1200)){
-        padding-bottom: rem(50);
+      width: 100%;
+      overflow: initial !important;
     }
   }
   // .products-about__wrapper
   &__wrapper {
+  
   }
   // .products-about__slide
   &__slide {
-    @media (min-width:em(1201)){
-      opacity: 0;
-      pointer-events: none;
-      transition: all 0.3s ease;
-      &.swiper-slide-active {
-        opacity: 1;
-        pointer-events: all;
-      }
-      &.swiper-slide-next {
-        opacity: 1;
-        pointer-events: all;
-      }
-      &.swiper-slide-next + .swiper-slide {
-        opacity: 1;
-        pointer-events: all;
-      }
-    }
-    @media (max-width: em(1200)){
-        // opacity: 1;
-        // pointer-events: all;
-    }
   }
   // .products-about__pagination
   &__pagination {
@@ -503,8 +488,8 @@
   // .products-about__buttons
   &__buttons {
     position: absolute;
-    bottom: rem(-45);
-    right: 0;
+    bottom: 0;
+    right: rem(320);
     width: 100%;
     max-width: rem(203);
     z-index: 10;

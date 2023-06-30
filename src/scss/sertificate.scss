@@ -12,7 +12,7 @@
 
 .sertificate {
   position: relative;
-  @include adaptiveValue("padding-top", 165, 85);
+  @include adaptiveValue("padding-top", 165, 125);
   @include adaptiveValue("padding-bottom", 205, 75);
   // .sertificate__container
   &__container {
