@@ -28,3 +28,12 @@ system-msud.html
 system-kpa.html
 
 system-bruep.html
+------------------------------
+
+
+img/
+..img/
+
+Ukr / Eng
+
+
