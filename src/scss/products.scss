@@ -253,11 +253,14 @@
   // .nav-product__title
   &__title {
     color: $gray-A8;
-    @include adaptiveValue("font-size", 24, 20, 0, 14400, 480);
+    @include adaptiveValue("font-size", 24, 20, 0, 1440, 480);
     font-weight: 700;
     line-height: calc(28/24);
     text-transform: uppercase;
     margin-bottom: rem(30);
+    @media (max-width:$mobile){
+       margin-bottom: unset; 
+    }
   }
   // .nav-product__content
   &__content {

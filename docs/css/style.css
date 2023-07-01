@@ -675,6 +675,7 @@ address {
 [data-showmore-button] span {
   display: block;
   font-size: 3.125rem;
+  height: 2rem;
   font-weight: 300;
   line-height: 0.5;
   color: #000000;
@@ -5232,6 +5233,10 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     padding-bottom: 11.25rem;
   }
 
+  .nav-product__title {
+    font-size: 1.5rem;
+  }
+
   .nav-product__item:not(:last-child) {
     margin-bottom: 1.0625rem;
   }
@@ -5370,12 +5375,6 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
 
   .products-main__title {
     margin-bottom: 3.75rem;
-  }
-}
-
-@media (min-width: 900em) {
-  .nav-product__title {
-    font-size: 1.5rem;
   }
 }
 
@@ -5673,6 +5672,10 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     -webkit-column-gap: 1.25rem;
        -moz-column-gap: 1.25rem;
             column-gap: 1.25rem;
+  }
+
+  .nav-product__title {
+    margin-bottom: unset;
   }
 
   .nav-product__item_mob {
@@ -9435,6 +9438,18 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     }
 }
 
+@supports (font-size: clamp( 1.25rem , 1.125rem  +  0.4166666667vw , 1.5rem )) {
+    .nav-product__title {
+      font-size: clamp( 1.25rem , 1.125rem  +  0.4166666667vw , 1.5rem );
+    }
+}
+
+@supports not (font-size: clamp( 1.25rem , 1.125rem  +  0.4166666667vw , 1.5rem )) {
+    .nav-product__title {
+      font-size: calc(1.25rem + 0.25 * (100vw - 30rem) / 60);
+    }
+}
+
 @supports (margin-bottom: clamp( 1.0625rem , 1.8125rem  +  -0.8333333333vw , 1.5625rem )) {
     .nav-product__item:not(:last-child) {
       margin-bottom: clamp( 1.0625rem , 1.8125rem  +  -0.8333333333vw , 1.5625rem );
@@ -9516,20 +9531,6 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
 @supports not (font-size: clamp( 2.375rem , 0.8125rem  +  5.2083333333vw , 5.5rem )) {
     .sertificate__title {
       font-size: calc(2.375rem + 3.125 * (100vw - 30rem) / 60);
-    }
-}
-}
-
-@media (min-width: 30em) and (max-width: 900em) {
-@supports (font-size: clamp( 1.25rem , 1.2413793103rem  +  0.0287356322vw , 1.5rem )) {
-    .nav-product__title {
-      font-size: clamp( 1.25rem , 1.2413793103rem  +  0.0287356322vw , 1.5rem );
-    }
-}
-
-@supports not (font-size: clamp( 1.25rem , 1.2413793103rem  +  0.0287356322vw , 1.5rem )) {
-    .nav-product__title {
-      font-size: calc(1.25rem + 0.25 * (100vw - 30rem) / 870);
     }
 }
 }
