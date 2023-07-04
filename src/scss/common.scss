@@ -536,6 +536,8 @@ address {
   // .partners__container
   &__container {
     position: relative;
+    // position: initial;
+    // --------------------------------
     display: flex;
     @media (max-width: em(900)){
         flex-direction: column;
@@ -596,8 +598,7 @@ address {
   // .partners__img-ibg
   &__img-ibg {
     position: absolute;
-    width: max-content;
-    height: 126%;
+    width: 67%;
     top: 0;
     right: 0;
     @media (max-width: em(900)){
@@ -609,12 +610,15 @@ address {
         right: unset;
     }
     img {
+      object-fit: contain;
+
       @media (max-width:$mobileSmall){
          width: 151%;
          left: -47%; 
       }
     }
   }
+
 	// .partners__decor-plus
 	&__decor-plus {
 	}

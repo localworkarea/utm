@@ -743,12 +743,14 @@ address {
 
 .partners__img-ibg {
   position: absolute;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-  height: 126%;
+  width: 67%;
   top: 0;
   right: 0;
+}
+
+.partners__img-ibg img {
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .partners__label {
