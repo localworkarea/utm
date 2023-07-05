@@ -1107,9 +1107,9 @@ address {
   opacity: 0;
   pointer-events: none;
   position: absolute;
-  top: 0;
+  top: 0.9375rem;
   left: 0;
-  padding-top: 1.875rem;
+  padding-top: 0.9375rem;
   -webkit-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
